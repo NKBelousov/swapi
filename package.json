@@ -1,6 +1,6 @@
 {
   "name": "swapi",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -24,5 +24,8 @@
     "styled-components": "^3.1.6",
     "webpack": "^3.11.0",
     "webpack-dev-server": "^2.11.1"
+  },
+  "dependencies": {
+    "axios": "^0.17.1"
   }
 }
