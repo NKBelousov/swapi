@@ -18,22 +18,14 @@ const Link = styled.a`
 `;
 
 class Nav extends Component {
-  static get defaultProps() {
+  static get propTypes() {
     return {
-      links: [
-        {
-          name: "Home",
-          url: "/home",
-        },
-        {
-          name: "About",
-          url: "/about",
-        },
-        {
-          name: "Contacts",
-          url: "/contacts",
-        },
-      ],
+      items: PropTypes.arrayOf(
+        PropTypes.shape({
+          name: PropTypes.string.isRequired,
+          url: PropTypes.string.isRequired,
+        })
+      ).isRequired,
     };
   }
   constructor(props) {
@@ -45,7 +37,7 @@ class Nav extends Component {
   render() {
     return (
       <Navigation>
-        {map(this.props.links, l => {
+        {map(this.props.items, l => {
           return (
             <Link key={l.url} onClick={this.onLink.bind(this, l.url)}>
               {l.name}

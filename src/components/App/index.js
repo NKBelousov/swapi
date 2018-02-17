@@ -7,6 +7,7 @@ import Nav from "~/components/Nav";
 
 const mapStateToProps = state => ({
   people: state.people,
+  routes: state.routes,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -17,7 +18,7 @@ class App extends Component {
   render() {
     return (
       <main>
-        <Nav />
+        <Nav items={this.props.routes} />
       </main>
     );
   }

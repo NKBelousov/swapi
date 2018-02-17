@@ -1,4 +1,8 @@
+import { each } from "lodash";
+
 import {
+  GO_TO_PEOPLE,
+  GO_TO_PLANETS,
   FETCH_PEOPLE,
   FETCH_PEOPLE_FAILURE,
   FETCH_PEOPLE_SUCCESS,
@@ -13,11 +17,29 @@ const INITIAL_STATE = {
     data: [],
     status: NONE,
   },
+  routes: [
+    {
+      active: true,
+      name: "People",
+      url: "/people",
+    },
+    {
+      active: false,
+      name: "Planets",
+      url: "/planets",
+    },
+  ],
 };
 
 function store(state = INITIAL_STATE, action) {
   const nextState = JSON.parse(JSON.stringify(state));
   switch (action.type) {
+    case GO_TO_PEOPLE:
+    case GO_TO_PLANETS:
+      each(nextState.routes, r => {
+        r.active = r.name === action.url;
+      });
+      return nextState;
     case FETCH_PEOPLE:
       nextState.people.status = LOADING;
       return nextState;
