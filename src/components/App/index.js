@@ -3,7 +3,10 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as Actions from "~/actions";
 
-import Nav from "~/components/Nav";
+import Header from "~/components/Layout/Header";
+import Nav from "~/components/Layout/Nav";
+import Page from "~/components/Layout/Page";
+import Preloader from "~/components/Utility/Preloader";
 
 const mapStateToProps = state => ({
   people: state.people,
@@ -19,6 +22,9 @@ class App extends Component {
     return (
       <main>
         <Nav items={this.props.routes} />
+        <Page>
+          <Header tooltip="Page Header Tooltip">Page Header</Header>
+        </Page>
       </main>
     );
   }
