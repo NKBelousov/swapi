@@ -17,6 +17,10 @@ const INITIAL_STATE = {
     data: [],
     status: NONE,
   },
+  planets: {
+    data: [],
+    status: NONE,
+  },
   routes: [
     {
       active: true,

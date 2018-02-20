@@ -11,6 +11,7 @@ import Preloader from "~/components/Utility/Preloader";
 
 const mapStateToProps = state => ({
   people: state.people,
+  planets: state.planets,
   routes: state.routes,
 });
 
