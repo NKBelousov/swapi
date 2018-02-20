@@ -26,13 +26,19 @@ class Nav extends Component {
           url: PropTypes.string.isRequired,
         })
       ).isRequired,
+      onPlanets: PropTypes.func.isRequired,
+      onPeople: PropTypes.func.isRequired,
     };
   }
   constructor(props) {
     super(props);
   }
   onLink(url) {
-    window.location = url;
+    if (url === "/planets") {
+      this.props.onPlanets();
+    } else {
+      this.props.onPeople();
+    }
   }
   render() {
     return (

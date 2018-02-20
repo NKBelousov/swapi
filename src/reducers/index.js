@@ -37,7 +37,7 @@ function store(state = INITIAL_STATE, action) {
     case GO_TO_PEOPLE:
     case GO_TO_PLANETS:
       each(nextState.routes, r => {
-        r.active = r.name === action.url;
+        r.active = r.url === action.url;
       });
       return nextState;
     case FETCH_PEOPLE:

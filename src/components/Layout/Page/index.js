@@ -15,8 +15,15 @@ class Page extends Component {
       children: PropTypes.node,
     };
   }
+  constructor(props) {
+    super(props);
+  }
   render() {
-    return <Content>{this.props.children}</Content>;
+    return (
+      <Content>
+        {this.props.children}
+      </Content>
+    );
   }
 }
 
