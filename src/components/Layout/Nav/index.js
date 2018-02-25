@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { map } from "lodash";
 import PropTypes from "prop-types";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 const Navigation = styled.nav`
   background: red;
