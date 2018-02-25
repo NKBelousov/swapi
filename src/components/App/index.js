@@ -8,7 +8,6 @@ import { find } from "lodash";
 import Header from "~/components/Layout/Header";
 import Nav from "~/components/Layout/Nav";
 import Page from "~/components/Layout/Page";
-import Preloader from "~/components/Utility/Preloader";
 
 const mapStateToProps = state => ({
   people: state.people,
