@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React, { Component } from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
@@ -20,6 +21,29 @@ const mapDispatchToProps = dispatch => ({
 });
 
 class App extends Component {
+  static get propTypes() {
+    return {
+      actions: PropTypes.shape({
+        goToPeople: PropTypes.func.isRequired,
+        goToPlanets: PropTypes.func.isRequired,
+      }).isRequired,
+      people: PropTypes.shape({
+        data: PropTypes.arrayOf(PropTypes.object).isRequired,
+        status: PropTypes.string.isRequired,
+      }).isRequired,
+      planets: PropTypes.shape({
+        data: PropTypes.arrayOf(PropTypes.object).isRequired,
+        status: PropTypes.string.isRequired,
+      }).isRequired,
+      routes: PropTypes.arrayOf(
+        PropTypes.shape({
+          active: PropTypes.bool.isRequired,
+          name: PropTypes.string.isRequired,
+          url: PropTypes.string.isRequired,
+        })
+      ).isRequired,
+    };
+  }
   constructor(props) {
     super(props);
 
