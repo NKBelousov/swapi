@@ -8,9 +8,7 @@ import {
   FETCH_PEOPLE_SUCCESS,
 } from "~/actions";
 
-const LOADING = "loading";
-const NONE = "none";
-const READY = "ready";
+import { NONE, LOADING, READY } from "~/actions/constants";
 
 const INITIAL_STATE = {
   people: {

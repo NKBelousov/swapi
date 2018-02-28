@@ -1,8 +1,5 @@
 import PropTypes from "prop-types";
-
-const LOADING = "loading";
-const NONE = "none";
-const READY = "ready";
+import { NONE, LOADING, READY } from "~/actions/constants";
 
 export default PropTypes.shape({
   data: PropTypes.array.isRequired,
