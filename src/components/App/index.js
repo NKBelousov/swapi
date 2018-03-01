@@ -12,6 +12,8 @@ import Header from "~/components/Layout/Header";
 import Nav from "~/components/Layout/Nav";
 import Page from "~/components/Layout/Page";
 
+import Button from "~/components/Utility/Button";
+
 const mapStateToProps = state => ({
   people: state.people,
   planets: state.planets,
@@ -40,7 +42,14 @@ class App extends Component {
     this.renderPage = this.renderPage.bind(this);
   }
   renderPage() {
-    return find(this.props.routes, { active: true }).name;
+    return (
+      <div>
+        <h1>{find(this.props.routes, { active: true }).name}</h1>
+        <div>
+          <Button text="Click me" onClick={() => alert("Clicked!")} />
+        </div>
+      </div>
+    );
   }
   render() {
     return (

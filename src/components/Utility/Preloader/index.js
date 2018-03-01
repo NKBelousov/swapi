@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 import styled, { keyframes } from "styled-components";
+import { PRIMARY, SECONDARY } from "~/constants/theme";
 
 const Wrapper = styled.div`
   display: block;
@@ -10,7 +11,7 @@ const Wrapper = styled.div`
 `;
 
 const Text = styled.span`
-  color: #db2c2c;
+  color: ${PRIMARY};
   font-size: 2rem;
   padding: 1rem;
 `;
@@ -25,9 +26,9 @@ const rotate = keyframes`
 
 const Loader = styled.div`
   animation: ${rotate} 2s linear infinite;
-  border: 4px solid #f3f3f3;
+  border: 4px solid ${SECONDARY};
   border-radius: 50%;
-  border-top: 4px solid #db2c2c;
+  border-top: 4px solid ${PRIMARY};
   display: inline-block;
   height: 1rem;
   transition: transform 0.3s linear;

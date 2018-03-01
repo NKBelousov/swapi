@@ -8,7 +8,7 @@ import {
   FETCH_PEOPLE_SUCCESS,
 } from "~/actions";
 
-import { NONE, LOADING, READY } from "~/actions/constants";
+import { NONE, LOADING, READY } from "~/constants/modes.js";
 
 const INITIAL_STATE = {
   people: {
