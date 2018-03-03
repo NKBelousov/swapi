@@ -6,7 +6,7 @@ import React, { Component } from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as Actions from "~/actions";
-import { find } from "lodash";
+import { map, find } from "lodash";
 
 import Header from "~/components/Layout/Header";
 import Nav from "~/components/Layout/Nav";
@@ -28,6 +28,7 @@ class App extends Component {
   static get propTypes() {
     return {
       actions: PropTypes.shape({
+        requestPeople: PropTypes.func.isRequired,
         goToPeople: PropTypes.func.isRequired,
         goToPlanets: PropTypes.func.isRequired,
       }).isRequired,
@@ -46,7 +47,13 @@ class App extends Component {
       <div>
         <h1>{find(this.props.routes, { active: true }).name}</h1>
         <div>
-          <Button text="Click me" onClick={() => alert("Clicked!")} />
+          <Button
+            text="Click me"
+            onClick={() => this.props.actions.requestPeople()}
+          />
+          {map(this.props.people.data, d => {
+            return <h1>{d.name}</h1>;
+          })}
         </div>
       </div>
     );
