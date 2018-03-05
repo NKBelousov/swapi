@@ -1,12 +1,6 @@
 import axios from "axios";
 
-export const FETCH_PEOPLE = "FETCH_PEOPLE";
-export const FETCH_PEOPLE_FAILURE = "FETCH_PEOPLE_FAILURE";
-export const FETCH_PEOPLE_SUCCESS = "FETCH_PEOPLE_SUCCESS";
-export const GO_TO_PEOPLE = "GO_TO_PEOPLE";
-export const GO_TO_PLANETS = "GO_TO_PLANETS";
 export const REQUEST_PEOPLE = "REQUEST_PEOPLE";
-
 export function requestPeople() {
   return function(dispatch) {
     dispatch(fetchPeople());
@@ -21,12 +15,14 @@ export function requestPeople() {
   };
 }
 
+export const FETCH_PEOPLE = "FETCH_PEOPLE";
 export function fetchPeople() {
   return {
     type: FETCH_PEOPLE,
   };
 }
 
+export const FETCH_PEOPLE_SUCCESS = "FETCH_PEOPLE_SUCCESS";
 export function fetchPeopleSuccess(data) {
   return {
     data,
@@ -34,12 +30,14 @@ export function fetchPeopleSuccess(data) {
   };
 }
 
+export const FETCH_PEOPLE_FAILURE = "FETCH_PEOPLE_FAILURE";
 export function fetchPeopleFailure() {
   return {
     type: FETCH_PEOPLE_FAILURE,
   };
 }
 
+export const GO_TO_PEOPLE = "GO_TO_PEOPLE";
 export function goToPeople() {
   return {
     type: GO_TO_PEOPLE,
@@ -47,6 +45,7 @@ export function goToPeople() {
   };
 }
 
+export const GO_TO_PLANETS = "GO_TO_PLANETS";
 export function goToPlanets() {
   return {
     type: GO_TO_PLANETS,
