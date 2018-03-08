@@ -3,18 +3,13 @@ import { map } from "lodash";
 import styled from "styled-components";
 
 import Button from "~/components/Utility/Button";
+import Person from "~/components/Person";
 import Preloader from "~/components/Utility/Preloader";
 
 import Data from "~/prop-types/Data";
 import { NONE, LOADING, READY } from "~/constants/modes";
 
-const Container = styled.div`
-  padding: 1em;
-`;
-
-const Item = styled.div`
-  padding: 1em;
-`;
+const Container = styled.div``;
 
 class People extends Component {
   static get propTypes() {
@@ -31,7 +26,8 @@ class People extends Component {
       return (
         <Container>
           {map(this.props.data.data, d => {
-            return <Item>{d.name}</Item>;
+            const { name, birth_year, gender, eye_color } = d;
+            return <Person name={name} />;
           })}
         </Container>
       );
