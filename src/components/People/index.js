@@ -26,8 +26,8 @@ class People extends Component {
       return (
         <Container>
           {map(this.props.data.data, d => {
-            const { name, birth_year, gender, eye_color } = d;
-            return <Person name={name} />;
+            const { name } = d;
+            return <Person key={name} name={name} />;
           })}
         </Container>
       );
