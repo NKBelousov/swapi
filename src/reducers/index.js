@@ -1,11 +1,14 @@
 import { each } from "lodash";
 
 import {
-  GO_TO_PEOPLE,
-  GO_TO_PLANETS,
   FETCH_PEOPLE,
   FETCH_PEOPLE_FAILURE,
   FETCH_PEOPLE_SUCCESS,
+  FETCH_PLANETS,
+  FETCH_PLANETS_FAILURE,
+  FETCH_PLANETS_SUCCESS,
+  GO_TO_PEOPLE,
+  GO_TO_PLANETS,
 } from "~/actions";
 
 import { NONE, LOADING, READY } from "~/constants/modes.js";
@@ -52,6 +55,17 @@ function store(state = INITIAL_STATE, action) {
     case FETCH_PEOPLE_FAILURE:
       nextState.people.data = [];
       nextState.people.status = NONE;
+      return nextState;
+    case FETCH_PLANETS:
+      nextState.planets.status = LOADING;
+      return nextState;
+    case FETCH_PLANETS_SUCCESS:
+      nextState.planets.data = action.data;
+      nextState.planets.status = READY;
+      return nextState;
+    case FETCH_PLANETS_FAILURE:
+      nextState.planets.data = [];
+      nextState.planets.status = NONE;
       return nextState;
     default:
       return nextState;

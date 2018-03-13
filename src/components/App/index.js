@@ -11,6 +11,7 @@ import Header from "~/components/Layout/Header";
 import Nav from "~/components/Layout/Nav";
 import Page from "~/components/Layout/Page";
 import People from "~/components/People";
+import Planets from "~/components/Planets";
 
 const mapStateToProps = state => ({
   people: state.people,
@@ -26,6 +27,7 @@ class App extends Component {
   static get propTypes() {
     return {
       actions: PropTypes.shape({
+        requestPlanets: PropTypes.func.isRequired,
         requestPeople: PropTypes.func.isRequired,
         goToPeople: PropTypes.func.isRequired,
         goToPlanets: PropTypes.func.isRequired,
@@ -44,8 +46,15 @@ class App extends Component {
           onPeople={this.props.actions.goToPeople}
         />
         <Page>
-          <Header tooltip="Page Header Tooltip">People</Header>
+          <Header tooltip="Page Header Tooltip">Swapi Client</Header>
           <br />
+          <h1>Planets</h1>
+          <Planets
+            onRequest={this.props.actions.requestPlanets}
+            data={this.props.planets}
+          />
+          <br />
+          <h1>People</h1>
           <People
             onRequest={this.props.actions.requestPeople}
             data={this.props.people}
