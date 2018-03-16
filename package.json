@@ -1,6 +1,6 @@
 {
   "name": "swapi",
-  "version": "0.0.41",
+  "version": "0.0.42",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -16,6 +16,7 @@
     "babel-preset-react": "^6.24.1",
     "eslint": "^4.17.0",
     "eslint-plugin-react": "^7.6.1",
+    "jest": "^22.4.2",
     "prettier": "^1.10.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
