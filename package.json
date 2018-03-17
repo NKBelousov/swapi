@@ -1,11 +1,12 @@
 {
   "name": "swapi",
-  "version": "0.0.42",
+  "version": "0.0.43",
   "description": "",
   "main": "index.js",
   "scripts": {
     "build": "./node_modules/webpack/bin/webpack.js -p",
-    "dev": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --content-base dist/"
+    "dev": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --content-base dist/",
+    "test": "./node_modules/jest/bin/jest.js"
   },
   "author": "NKBelousov",
   "license": "MIT",
