@@ -19,11 +19,7 @@ class Page extends Component {
     super(props);
   }
   render() {
-    return (
-      <Content>
-        {this.props.children}
-      </Content>
-    );
+    return <Content>{this.props.children}</Content>;
   }
 }
 
