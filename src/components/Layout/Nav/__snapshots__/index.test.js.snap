@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render correctly 1`] = `
+<nav
+  className="sc-bdVaJa bPufhP"
+>
+  <a
+    className="sc-bwzfXH GDljA"
+    onClick={[Function]}
+  >
+    First
+  </a>
+  <a
+    className="sc-bwzfXH GDljA"
+    onClick={[Function]}
+  >
+    Second
+  </a>
+</nav>
+`;
