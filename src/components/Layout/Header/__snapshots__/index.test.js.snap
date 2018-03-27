@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render correctly 1`] = `
+<h1
+  className="sc-bdVaJa hkIzJ"
+  title="Test"
+>
+  <h1>
+    Children
+  </h1>
+</h1>
+`;
