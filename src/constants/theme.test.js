@@ -1,4 +1,4 @@
-import * as THEME from "./theme.js";
+import THEME from "./theme.js";
 import { each } from "lodash";
 
 test("Every value is unique", () => {

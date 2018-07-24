@@ -1,19 +1,17 @@
-import React, { Component } from "react";
-import { map } from "lodash";
 import PropTypes from "prop-types";
-
+import React, { Component } from "react";
 import styled from "styled-components";
-import { PRIMARY, SECONDARY } from "~/constants/theme";
+import { map } from "lodash";
 
 const Navigation = styled.nav`
-  background: ${PRIMARY};
-  color: ${SECONDARY};
+  background: ${props => props.theme.primary};
+  color: ${props => props.theme.secondary};
   font-size: 2em;
   padding: 1em;
 `;
 
 const Link = styled.a`
-  border-bottom: 1px solid ${SECONDARY};
+  border-bottom: 1px solid ${props => props.theme.secondary};
   cursor: pointer;
   margin: 0 0.5em;
   text-align: center;

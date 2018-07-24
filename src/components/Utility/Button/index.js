@@ -2,20 +2,19 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 import styled from "styled-components";
-import { PRIMARY, SECONDARY } from "~/constants/theme";
 
 const Block = styled.div`
-  background: ${PRIMARY};
-  border: 1px solid ${PRIMARY};
-  color: ${SECONDARY};
+  background: ${props => props.theme.primary};
+  border: 1px solid ${props => props.theme.primary};
+  color: ${props => props.theme.secondary};
   cursor: pointer;
   display: block;
   margin: 0 auto;
   text-align: center;
 
   &:hover {
-    background: ${SECONDARY};
-    color: ${PRIMARY};
+    background: ${props => props.theme.secondary};
+    color: ${props => props.theme.primary};
   }
 
   &:active {

@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import React, { Component } from "react";
 import styled from "styled-components";
-import { PRIMARY } from "~/constants/theme";
 
 const border = "5px";
 const width = "33.3%";
@@ -16,7 +15,7 @@ const Wrapper = styled.div`
   width: ${width};
 
   &:hover {
-    border: ${border} solid ${PRIMARY};
+    border: ${border} solid ${props => props.theme.primary};
   }
 `;
 
