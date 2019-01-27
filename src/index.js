@@ -8,15 +8,25 @@ import { createStore, applyMiddleware } from "redux";
 import reducers from "~/reducers";
 import App from "~/components/App";
 
-const store = createStore(
-  reducers,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-  applyMiddleware(thunk)
-);
+const STATE_KEY = "redux_state";
+let initialState = void 0;
 
-render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById("app")
-);
+try {
+  const stored = localStorage.getItem(STATE_KEY);
+  if (stored) {
+    initialState = JSON.parse(stored);
+  }
+} finally {
+  const store = createStore(reducers, initialState, applyMiddleware(thunk));
+
+  store.subscribe(() => {
+    localStorage.setItem(STATE_KEY, JSON.stringify(store.getState()));
+  });
+
+  render(
+    <Provider store={store}>
+      <App />
+    </Provider>,
+    document.getElementById("app")
+  );
+}
