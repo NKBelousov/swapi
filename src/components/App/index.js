@@ -17,6 +17,7 @@ import Theme from "~/constants/theme";
 const mapStateToProps = state => ({
   people: state.people,
   planets: state.planets,
+  films: state.films,
   routes: state.routes,
 });
 
@@ -30,11 +31,14 @@ class App extends Component {
       actions: PropTypes.shape({
         requestPlanets: PropTypes.func.isRequired,
         requestPeople: PropTypes.func.isRequired,
+        requestFilms: PropTypes.func.isRequired,
         goToPeople: PropTypes.func.isRequired,
         goToPlanets: PropTypes.func.isRequired,
+        goToFilms: PropTypes.func.isRequired,
       }).isRequired,
       people: Data,
       planets: Data,
+      films: Data,
       routes: Routes,
     };
   }
