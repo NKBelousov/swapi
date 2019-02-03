@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 
 import * as Actions from "~/actions";
 import Data from "~/prop-types/Data";
+import Films from "~/components/Films";
 import Header from "~/components/Layout/Header";
 import Nav from "~/components/Layout/Nav";
 import Page from "~/components/Layout/Page";
@@ -64,6 +65,12 @@ class App extends Component {
             <People
               onRequest={this.props.actions.requestPeople}
               data={this.props.people}
+            />
+            <br />
+            <h1>Films</h1>
+            <Films
+              onRequest={this.props.actions.requestFilms}
+              data={this.props.films}
             />
           </Page>
         </main>
