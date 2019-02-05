@@ -1,3 +1,5 @@
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
 module.exports = {
   resolve: {
     alias: {
@@ -21,4 +23,5 @@ module.exports = {
       },
     ],
   },
+  plugins: [new HtmlWebpackPlugin()],
 };
