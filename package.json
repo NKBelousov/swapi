@@ -1,6 +1,6 @@
 {
   "name": "swapi",
-  "version": "0.0.71",
+  "version": "0.0.72",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -32,6 +32,7 @@
     "redux-thunk": "^2.2.0",
     "styled-components": "^3.1.6",
     "webpack": "^4.29.0",
+    "webpack-auto-inject-version": "^1.2.2",
     "webpack-cli": "^3.2.1",
     "webpack-dev-server": "^3.1.14"
   },
