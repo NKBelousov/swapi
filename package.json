@@ -1,11 +1,11 @@
 {
   "name": "swapi",
-  "version": "0.0.72",
+  "version": "0.0.73",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "./node_modules/webpack/bin/webpack.js -p",
-    "dev": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --content-base dist/",
+    "build": "NODE_ENV=production ./node_modules/webpack/bin/webpack.js -p",
+    "dev": "NODE_ENV=development ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --content-base dist/",
     "test": "./node_modules/jest/bin/jest.js"
   },
   "author": "NKBelousov",

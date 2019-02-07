@@ -12,6 +12,7 @@ module.exports = {
     path: __dirname + "/dist",
     filename: "bundle.js",
   },
+  mode: process.env.NODE_ENV,
   module: {
     rules: [
       {
