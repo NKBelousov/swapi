@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 
 import reducers from "~/reducers";
-import App from "~/components/App";
+import App from "~/containers/App";
 
 const STATE_KEY = "redux_state";
 let initialState = void 0;

@@ -31,7 +31,9 @@ class Nav extends PureComponent {
           url: PropTypes.string.isRequired,
         })
       ).isRequired,
-      onNavigate: PropTypes.func.isRequired,
+      onFilms: PropTypes.func.isRequired,
+      onPeople: PropTypes.func.isRequired,
+      onPlanets: PropTypes.func.isRequired,
     };
   }
   constructor(props) {

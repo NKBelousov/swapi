@@ -3,15 +3,16 @@ import React, { PureComponent } from "react";
 import { ThemeProvider } from "styled-components";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
+import { find } from "lodash";
 
 import * as Actions from "~/actions";
 import Data from "~/prop-types/Data";
-import Films from "~/components/Films";
+import Films from "~/containers/Films";
 import Header from "~/components/Layout/Header";
 import Nav from "~/components/Layout/Nav";
 import Page from "~/components/Layout/Page";
-import People from "~/components/People";
-import Planets from "~/components/Planets";
+import People from "~/containers/People";
+import Planets from "~/containers/Planets";
 import Routes from "~/prop-types/Routes";
 import Theme from "~/constants/theme";
 
@@ -44,30 +45,24 @@ class App extends PureComponent {
     };
   }
   renderPage() {
-    let content = null;
-    if (this.props.routes[0].active) {
-      content = (
-        <Planets
-          onRequest={this.props.actions.requestPlanets}
-          data={this.props.planets}
-        />
-      );
-    } else if (this.props.routes[1].active) {
-      content = (
-        <People
+    const activeRoute = find(this.props.routes, route => route.active === true);
+    switch (activeRoute.url){
+      case "/people":
+        return <People
           onRequest={this.props.actions.requestPeople}
           data={this.props.people}
-        />
-      );
-    } else if (this.props.routes[2].active) {
-      content = (
-        <Films
+        />;
+      case "/planets":
+        return <Planets
+          onRequest={this.props.actions.requestPlanets}
+          data={this.props.planets}
+        />;
+      case "/films":
+        return <Films
           onRequest={this.props.actions.requestFilms}
           data={this.props.films}
-        />
-      );
+        />;
     }
-    return content;
   }
   render() {
     return (
