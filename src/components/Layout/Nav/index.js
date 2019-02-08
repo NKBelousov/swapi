@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import styled from "styled-components";
 import { map } from "lodash";
 
@@ -17,7 +17,7 @@ const Link = styled.a`
   text-align: center;
 `;
 
-class Nav extends Component {
+class Nav extends PureComponent {
   static get propTypes() {
     return {
       items: PropTypes.arrayOf(

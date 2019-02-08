@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import styled from "styled-components";
 
 const border = "5px";
@@ -33,7 +33,7 @@ const Value = styled.div`
   text-align: center;
 `;
 
-class Person extends Component {
+class Person extends PureComponent {
   static get propTypes() {
     return {
       name: PropTypes.string.isRequired,

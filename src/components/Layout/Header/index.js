@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import styled from "styled-components";
 
 const Title = styled.h1`
@@ -10,7 +10,7 @@ const Title = styled.h1`
   padding: 1rem 0rem;
 `;
 
-class Header extends Component {
+class Header extends PureComponent {
   static get propTypes() {
     return {
       tooltip: PropTypes.string,

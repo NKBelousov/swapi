@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 
 import styled, { keyframes } from "styled-components";
@@ -34,7 +34,7 @@ const Loader = styled.div`
   width: 1rem;
 `;
 
-class Preloader extends Component {
+class Preloader extends PureComponent {
   static get propTypes() {
     return {
       text: PropTypes.string,

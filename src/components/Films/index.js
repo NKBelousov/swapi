@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { map } from "lodash";
 import styled from "styled-components";
 
@@ -11,7 +11,7 @@ import { NONE, LOADING, READY } from "~/constants/modes";
 
 const Container = styled.div``;
 
-class Films extends Component {
+class Films extends PureComponent {
   static get propTypes() {
     return Data;
   }

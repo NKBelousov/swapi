@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { ThemeProvider } from "styled-components";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
@@ -26,7 +26,7 @@ const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(Actions, dispatch),
 });
 
-class App extends Component {
+class App extends PureComponent {
   static get propTypes() {
     return {
       actions: PropTypes.shape({

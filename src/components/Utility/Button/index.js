@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 
 import styled from "styled-components";
@@ -27,7 +27,7 @@ const Text = styled.span`
   padding: 1rem;
 `;
 
-class Button extends Component {
+class Button extends PureComponent {
   static get propTypes() {
     return {
       onClick: PropTypes.func.isRequired,
