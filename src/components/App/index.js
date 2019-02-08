@@ -51,6 +51,7 @@ class App extends PureComponent {
             items={this.props.routes}
             onPlanets={this.props.actions.goToPlanets}
             onPeople={this.props.actions.goToPeople}
+            onFilms={this.props.actions.goToFilms}
           />
           <Page>
             <Header tooltip="Page Header Tooltip">Swapi Client</Header>

@@ -17,6 +17,11 @@ const Link = styled.a`
   text-align: center;
 `;
 
+const ActiveLink = styled(Link)`
+  color: ${props => props.theme.primary};
+  background: ${props => props.theme.secondary};
+`;
+
 class Nav extends PureComponent {
   static get propTypes() {
     return {
@@ -26,29 +31,39 @@ class Nav extends PureComponent {
           url: PropTypes.string.isRequired,
         })
       ).isRequired,
-      onPlanets: PropTypes.func.isRequired,
-      onPeople: PropTypes.func.isRequired,
+      onNavigate: PropTypes.func.isRequired,
     };
   }
   constructor(props) {
     super(props);
   }
   onLink(url) {
-    if (url === "/planets") {
-      this.props.onPlanets();
-    } else {
-      this.props.onPeople();
+    switch (url) {
+      case "/planets":
+        this.props.onPlanets();
+        break;
+      case "/people":
+        this.props.onPeople();
+        break;
+      case "/films":
+        this.props.onFilms();
+        break;
     }
   }
   render() {
     return (
       <Navigation>
         {map(this.props.items, l => {
-          return (
-            <Link key={l.url} onClick={this.onLink.bind(this, l.url)}>
-              {l.name}
-            </Link>
-          );
+          const props = {
+            key: l.url,
+            onClick: this.onLink.bind(this, l.url),
+            children: l.name,
+          };
+          if (l.active) {
+            return <ActiveLink {...props} />;
+          } else {
+            return <Link {...props} />;
+          }
         })}
       </Navigation>
     );
