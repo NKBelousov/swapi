@@ -1,13 +1,13 @@
 {
   "name": "swapi",
-  "version": "0.0.74",
+  "version": "0.0.75",
   "description": "",
   "main": "index.js",
   "scripts": {
     "build": "NODE_ENV=production ./node_modules/webpack/bin/webpack.js -p",
-    "dev":
-      "NODE_ENV=development ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --content-base dist/",
-    "test": "./node_modules/jest/bin/jest.js"
+    "dev": "NODE_ENV=development ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --content-base dist/",
+    "test": "./node_modules/jest/bin/jest.js --notify",
+    "test-watch": "npm run test -- --watchAll"
   },
   "author": "NKBelousov",
   "license": "MIT",
