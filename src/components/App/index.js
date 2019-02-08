@@ -43,6 +43,32 @@ class App extends PureComponent {
       routes: Routes,
     };
   }
+  renderPage() {
+    let content = null;
+    if (this.props.routes[0].active) {
+      content = (
+        <Planets
+          onRequest={this.props.actions.requestPlanets}
+          data={this.props.planets}
+        />
+      );
+    } else if (this.props.routes[1].active) {
+      content = (
+        <People
+          onRequest={this.props.actions.requestPeople}
+          data={this.props.people}
+        />
+      );
+    } else if (this.props.routes[2].active) {
+      content = (
+        <Films
+          onRequest={this.props.actions.requestFilms}
+          data={this.props.films}
+        />
+      );
+    }
+    return content;
+  }
   render() {
     return (
       <ThemeProvider theme={Theme}>
@@ -55,24 +81,7 @@ class App extends PureComponent {
           />
           <Page>
             <Header tooltip="Page Header Tooltip">Swapi Client</Header>
-            <br />
-            <h1>Planets</h1>
-            <Planets
-              onRequest={this.props.actions.requestPlanets}
-              data={this.props.planets}
-            />
-            <br />
-            <h1>People</h1>
-            <People
-              onRequest={this.props.actions.requestPeople}
-              data={this.props.people}
-            />
-            <br />
-            <h1>Films</h1>
-            <Films
-              onRequest={this.props.actions.requestFilms}
-              data={this.props.films}
-            />
+            {this.renderPage()}
           </Page>
         </main>
       </ThemeProvider>
