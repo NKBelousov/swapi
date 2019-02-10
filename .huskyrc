@@ -1,0 +1,5 @@
+{
+  "hooks": {
+    "pre-commit": "npm test && npm version patch --no-git-tag && git add package.json && git add package-lock.json"
+  }
+}
