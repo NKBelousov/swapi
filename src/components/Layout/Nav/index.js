@@ -39,17 +39,19 @@ class Nav extends PureComponent {
   constructor(props) {
     super(props);
   }
-  onLink(url) {
-    switch (url) {
-      case "/planets":
-        this.props.onPlanets();
-        break;
-      case "/people":
-        this.props.onPeople();
-        break;
-      case "/films":
-        this.props.onFilms();
-        break;
+  onLink(link) {
+    if (link.active === false) {
+      switch (link.url) {
+        case "/planets":
+          this.props.onPlanets();
+          break;
+        case "/people":
+          this.props.onPeople();
+          break;
+        case "/films":
+          this.props.onFilms();
+          break;
+      }
     }
   }
   render() {
@@ -58,7 +60,7 @@ class Nav extends PureComponent {
         {map(this.props.items, l => {
           const props = {
             key: l.url,
-            onClick: this.onLink.bind(this, l.url),
+            onClick: this.onLink.bind(this, l),
             children: l.name,
           };
           if (l.active) {
