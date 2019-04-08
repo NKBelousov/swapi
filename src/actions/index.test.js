@@ -1,17 +1,10 @@
+import * as films from "./films";
 import * as people from "./people";
 import * as planets from "./planets";
-import { each, values } from "lodash";
+
+import { flatten, uniq, values } from "lodash";
 
 test("Every action and action creator is unique", () => {
-  const ACTIONS = values(people).concat(values(planets));
-  const map = [];
-  let result = true;
-  each(ACTIONS, m => {
-    if (map.indexOf(m) === -1) {
-      map.push(m);
-    } else {
-      result = false;
-    }
-    expect(result).toBe(true);
-  });
+  const ACTIONS = flatten([films, planets, people].map(values));
+  expect(ACTIONS).toHaveLength(uniq(ACTIONS).length);
 });

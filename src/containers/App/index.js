@@ -1,9 +1,9 @@
-import PropTypes from "prop-types";
-import React, { PureComponent } from "react";
-import { ThemeProvider } from "styled-components";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { find } from "lodash";
+import { ThemeProvider } from "styled-components";
+import PropTypes from "prop-types";
+import React, { PureComponent } from "react";
 
 import * as Actions from "~/actions";
 import Data from "~/prop-types/Data";
@@ -46,22 +46,28 @@ class App extends PureComponent {
   }
   renderPage() {
     const activeRoute = find(this.props.routes, route => route.active === true);
-    switch (activeRoute.url){
+    switch (activeRoute.url) {
       case "/people":
-        return <People
-          onRequest={this.props.actions.requestPeople}
-          data={this.props.people}
-        />;
+        return (
+          <People
+            onRequest={this.props.actions.requestPeople}
+            data={this.props.people}
+          />
+        );
       case "/planets":
-        return <Planets
-          onRequest={this.props.actions.requestPlanets}
-          data={this.props.planets}
-        />;
+        return (
+          <Planets
+            onRequest={this.props.actions.requestPlanets}
+            data={this.props.planets}
+          />
+        );
       case "/films":
-        return <Films
-          onRequest={this.props.actions.requestFilms}
-          data={this.props.films}
-        />;
+        return (
+          <Films
+            onRequest={this.props.actions.requestFilms}
+            data={this.props.films}
+          />
+        );
     }
   }
   render() {
