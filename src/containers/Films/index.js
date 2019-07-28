@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React, { memo } from "react";
 import { map } from "lodash";
 import styled from "styled-components";
 
@@ -11,28 +11,27 @@ import { NONE, LOADING, READY } from "~/constants/modes";
 
 const Container = styled.div``;
 
-class Films extends PureComponent {
-  static get propTypes() {
-    return Data;
+const Films = memo(props => {
+  if (props.data.status === NONE) {
+    return <Button onClick={props.onRequest} text="Request" />;
   }
-  render() {
-    if (this.props.data.status === NONE) {
-      return <Button onClick={this.props.onRequest} text="Request" />;
-    }
-    if (this.props.data.status === LOADING) {
-      return <Preloader />;
-    }
-    if (this.props.data.status === READY) {
-      return (
-        <Container>
-          {map(this.props.data.data, d => {
-            const { title } = d;
-            return <Film key={title} title={title} />;
-          })}
-        </Container>
-      );
-    }
+  if (props.data.status === LOADING) {
+    return <Preloader />;
   }
-}
+  if (props.data.status === READY) {
+    return (
+      <Container>
+        {map(props.data.data, d => {
+          const { title } = d;
+          return <Film key={title} title={title} />;
+        })}
+      </Container>
+    );
+  }
+})
+
+Films.propTypes = Data
+
+Films.displayName = 'Films'
 
 export default Films;
