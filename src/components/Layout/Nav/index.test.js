@@ -15,7 +15,12 @@ test("Should render correctly", () => {
     },
   ];
   const tree = renderer
-    .create(<Nav items={ITEMS} onPeople={alert} onPlanets={alert} />)
+    .create(<Nav
+      items={ITEMS}
+      onPeople={alert}
+      onPlanets={alert}
+      onFilms={alert}
+    />)
     .toJSON();
   expect(tree).toMatchSnapshot();
 });
