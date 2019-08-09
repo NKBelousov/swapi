@@ -15,11 +15,13 @@ import People from "~/containers/People";
 import Planets from "~/containers/Planets";
 import Routes from "~/prop-types/Routes";
 import Theme from "~/constants/theme";
+import Starships from "../Starships";
 
 const mapStateToProps = state => ({
   people: state.people,
   planets: state.planets,
   films: state.films,
+  starships: state.starships,
   routes: state.routes,
 });
 
@@ -68,6 +70,13 @@ class App extends PureComponent {
             data={this.props.films}
           />
         );
+      case "/starships":
+        return (
+          <Starships
+            onRequest={this.props.actions.requestStarships}
+            data={this.props.starships}
+          />
+        );
     }
   }
   render() {
@@ -79,6 +88,7 @@ class App extends PureComponent {
             onPlanets={this.props.actions.goToPlanets}
             onPeople={this.props.actions.goToPeople}
             onFilms={this.props.actions.goToFilms}
+            onStarships={this.props.actions.goToStarships}
           />
           <Page>
             <Header tooltip="Page Header Tooltip">Swapi Client</Header>

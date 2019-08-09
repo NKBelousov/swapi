@@ -10,12 +10,16 @@ import {
   FETCH_FILMS,
   FETCH_FILMS_FAILURE,
   FETCH_FILMS_SUCCESS,
+  FETCH_STARSHIPS,
+  FETCH_STARSHIPS_FAILURE,
+  FETCH_STARSHIPS_SUCCESS,
   GO_TO_PEOPLE,
   GO_TO_PLANETS,
   GO_TO_FILMS,
+  GO_TO_STARSHIPS
 } from "~/actions";
 
-import { NONE, LOADING, READY } from "~/constants/modes.js";
+import { NONE, LOADING, READY } from "~/constants/modes";
 
 const INITIAL_STATE = {
   people: {
@@ -27,6 +31,10 @@ const INITIAL_STATE = {
     status: NONE,
   },
   films: {
+    data: [],
+    status: NONE,
+  },
+  starships: {
     data: [],
     status: NONE,
   },
@@ -46,6 +54,11 @@ const INITIAL_STATE = {
       name: "Films",
       url: "/films",
     },
+    {
+      active: false,
+      name: "Starships",
+      url: "/starships",
+    },
   ],
 };
 
@@ -55,6 +68,7 @@ function store(state = INITIAL_STATE, action) {
     case GO_TO_PEOPLE:
     case GO_TO_PLANETS:
     case GO_TO_FILMS:
+    case GO_TO_STARSHIPS:
       each(nextState.routes, r => {
         r.active = r.url === action.url;
       });
@@ -91,6 +105,17 @@ function store(state = INITIAL_STATE, action) {
     case FETCH_FILMS_FAILURE:
       nextState.films.data = [];
       nextState.films.status = NONE;
+      return nextState;
+    case FETCH_STARSHIPS:
+      nextState.starships.status = LOADING;
+      return nextState;
+    case FETCH_STARSHIPS_SUCCESS:
+      nextState.starships.data = action.data;
+      nextState.starships.status = READY;
+      return nextState;
+    case FETCH_STARSHIPS_FAILURE:
+      nextState.starships.data = [];
+      nextState.starships.status = NONE;
       return nextState;
     default:
       return nextState;

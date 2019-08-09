@@ -51,6 +51,9 @@ class Nav extends PureComponent {
         case "/films":
           this.props.onFilms();
           break;
+        case "/starships":
+          this.props.onStarships();
+          break;
       }
     }
   }
