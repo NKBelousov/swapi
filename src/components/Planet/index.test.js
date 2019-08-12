@@ -1,12 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import Person from './index'
+import Planet from './index'
 
-describe('Person', () => {
+describe('Planet', () => {
   it(`should render without crashing`, () => {
     const div = document.createElement('div')
-    ReactDOM.render(<Person />, div)
+    ReactDOM.render(<Planet />, div)
     ReactDOM.unmountComponentAtNode(div)
   })
 })
