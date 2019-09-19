@@ -1,6 +1,6 @@
 import { READY, LOADING, NONE } from '~/constants/modes'
 
-const INITIAL_STATE = {
+export const INITIAL_STATE = {
   data: [],
   status: NONE
 }
