@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import * as modes from '~/constants/modes'
+import * as statuses from '~/constants/statuses'
 
 import Starships from './index'
 
@@ -14,12 +14,12 @@ describe('Starships', () => {
     ReactDOM.unmountComponentAtNode(div)
   })
 
-  Object.values(modes).map(mode => {
-    it(`should render mode "${mode}" without crashing`, () => {
+  Object.values(statuses).map(status => {
+    it(`should render status "${status}" without crashing`, () => {
       ReactDOM.render(<Starships
         data={{
           data: [],
-          status: mode
+          status: status
         }}
         onRequest={jest.fn()}
       />, div)

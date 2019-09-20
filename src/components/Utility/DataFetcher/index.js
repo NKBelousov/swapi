@@ -4,7 +4,7 @@ import Button from "~/components/Utility/Button";
 import Preloader from "~/components/Utility/Preloader";
 
 import Data from "~/prop-types/Data";
-import { NONE, LOADING, READY } from "~/constants/modes";
+import { NONE, LOADING, READY } from "~/constants/statuses";
 
 const DataFetcher = memo(props => {
   if (props.data.status === NONE) {

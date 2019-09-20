@@ -1,4 +1,4 @@
-import { READY, LOADING } from '~/constants/modes'
+import { READY, LOADING } from '~/constants/statuses'
 
 import { createReducer, INITIAL_STATE } from './helpers'
 
