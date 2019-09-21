@@ -1,3 +1,4 @@
+import { throttle } from 'lodash'
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import { render } from "react-dom";
@@ -27,9 +28,9 @@ try {
   );
   sagaMiddleware.run(sagas);
 
-  store.subscribe(() => {
+  store.subscribe(throttle(() => {
     localStorage.setItem(STATE_KEY, JSON.stringify(store.getState()));
-  });
+  }, 300));
 
   render(
     <Provider store={store}>
