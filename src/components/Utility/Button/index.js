@@ -30,19 +30,19 @@ const Text = styled.span`
 class Button extends PureComponent {
   static get propTypes() {
     return {
-      onClick: PropTypes.func.isRequired,
-      text: PropTypes.string,
+      onClick: PropTypes.func,
+      children: PropTypes.node,
     };
   }
   static get defaultProps() {
     return {
-      text: "Button",
+      children: 'Button'
     };
   }
   render() {
     return (
       <Block onClick={this.props.onClick}>
-        <Text>{this.props.text}</Text>
+        <Text>{this.props.children}</Text>
       </Block>
     );
   }

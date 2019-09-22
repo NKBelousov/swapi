@@ -9,7 +9,7 @@ test("Should render correctly", () => {
     alert(text);
   };
   const tree = renderer
-    .create(<Button text={text} onClick={onClick} />)
+    .create(<Button onClick={onClick}>{text}</Button>)
     .toJSON();
   expect(tree).toMatchSnapshot();
 });

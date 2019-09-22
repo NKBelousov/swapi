@@ -8,7 +8,7 @@ import { NONE, LOADING, READY } from "~/constants/statuses";
 
 const DataFetcher = memo(props => {
   if (props.data.status === NONE) {
-    return <Button onClick={props.onRequest} text="Request" />;
+    return <Button onClick={props.onRequest}>Request</Button>;
   }
   if (props.data.status === LOADING) {
     return <Preloader />;

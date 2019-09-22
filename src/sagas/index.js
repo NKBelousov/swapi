@@ -19,6 +19,6 @@ function* watchPeople() {
   yield takeLatest(actions.REQUEST_PEOPLE, fetchPeople);
 }
 
-export default function*() {
+export default function* () {
   yield all([watchPeople()]);
 }
