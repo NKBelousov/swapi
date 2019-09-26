@@ -2,20 +2,40 @@ import PropTypes from "prop-types";
 import React, { PureComponent } from "react";
 import styled from "styled-components";
 
+import { devices } from '~/constants/media';
+
 const border = "5px";
-const width = "33.3%";
+const width = percent => `
+  max-width: ${percent}%;
+  min-width: ${percent}%;
+  width: ${percent}%;
+`;
+
 const Wrapper = styled.div`
   border: ${border} solid transparent;
   border-radius: 15px;
   box-sizing: border-box;
   display: inline-block;
-  max-width: ${width};
-  min-width: ${width};
   transition: transform 0.3s linear, border 0.3s linear;
-  width: ${width};
 
   &:hover {
     border: ${border} solid ${props => props.theme.primary};
+  }
+
+  ${devices.mobile} {
+    ${width(50)}
+  }
+
+  ${devices.tablet} {
+    ${width(33.333)}
+  }
+
+  ${devices.laptop} {
+    ${width(25)}
+  }
+
+  ${devices.desktop} {
+    ${width(20)}
   }
 `;
 
