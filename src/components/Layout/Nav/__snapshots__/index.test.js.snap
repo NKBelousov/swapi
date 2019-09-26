@@ -5,13 +5,13 @@ exports[`Should render correctly 1`] = `
   className="sc-bdVaJa kxRaRH"
 >
   <a
-    className="sc-bwzfXH jVsJLG"
+    className="sc-bwzfXH bdZwqK"
     onClick={[Function]}
   >
     First
   </a>
   <a
-    className="sc-bwzfXH jVsJLG"
+    className="sc-bwzfXH bdZwqK"
     onClick={[Function]}
   >
     Second

@@ -3,6 +3,8 @@ import React, { PureComponent } from "react";
 import styled from "styled-components";
 import { map } from "lodash";
 
+import { devices } from '~/constants/media'
+
 const Navigation = styled.nav`
   background: ${props => props.theme.primary};
   color: ${props => props.theme.secondary};
@@ -15,6 +17,10 @@ const Link = styled.a`
   cursor: pointer;
   margin: 0 0.5em;
   text-align: center;
+
+  ${devices.mobile} {
+    display: block;
+  }
 `;
 
 const ActiveLink = styled(Link)`
