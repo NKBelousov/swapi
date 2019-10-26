@@ -2,6 +2,9 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const WebpackAutoInjectVersion = require("webpack-auto-inject-version");
 
 module.exports = {
+  devServer: {
+    historyApiFallback: true
+  },
   resolve: {
     alias: {
       "~": __dirname + "/src/",
