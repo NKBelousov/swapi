@@ -1,14 +1,17 @@
-import { throttle } from 'lodash'
+import { ConnectedRouter } from 'connected-react-router'
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import { render } from "react-dom";
+import { throttle } from 'lodash'
 import createSagaMiddleware from "redux-saga";
 import React from "react";
 import thunk from "redux-thunk";
 
-import reducers from "~/reducers";
+import reducers, { history } from "~/reducers";
 import App from "~/containers/App";
 import sagas from "~/sagas";
+import { ThemeProvider } from 'styled-components';
+import theme from './constants/theme';
 
 const STATE_KEY = "redux_state";
 let initialState = void 0;
@@ -34,7 +37,11 @@ try {
 
   render(
     <Provider store={store}>
-      <App />
+      <ThemeProvider theme={theme}>
+        <ConnectedRouter history={history}>
+          <App />
+        </ConnectedRouter>
+      </ThemeProvider>
     </Provider>,
     document.getElementById("app")
   );

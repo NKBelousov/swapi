@@ -18,9 +18,3 @@ export const fetchPeopleSuccess = data => ({
   type: FETCH_PEOPLE_SUCCESS,
   data,
 });
-
-export const GO_TO_PEOPLE = "@@people/GO_TO";
-export const goToPeople = () => ({
-  type: GO_TO_PEOPLE,
-  url: "/people",
-});

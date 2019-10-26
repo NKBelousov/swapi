@@ -3,7 +3,7 @@ import renderer from "react-test-renderer";
 
 import Nav from "./index.js";
 
-test("Should render correctly", () => {
+test.skip("Should render correctly", () => {
   const ITEMS = [
     {
       url: "/first",

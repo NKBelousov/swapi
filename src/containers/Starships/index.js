@@ -1,8 +1,11 @@
-import React, { memo } from "react";
+import { connect } from 'react-redux'
+import { createSelector } from 'reselect'
 import { map } from "lodash";
+import React, { memo } from "react";
 
 import DataFetcher from "~/components/Utility/DataFetcher";
 import Starship from "~/components/Starship";
+import { requestStarships } from '~/actions';
 
 const Starships = memo(props => {
   return <DataFetcher {...props}>
@@ -15,4 +18,11 @@ const Starships = memo(props => {
 
 Starships.displayName = 'Starships'
 
-export default Starships;
+const mapStateToProps = createSelector([state => state.starships], starships => ({ data: starships }))
+
+const mapDispatchToProps = dispatch => ({
+  onRequest: () => dispatch(requestStarships())
+})
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Starships);

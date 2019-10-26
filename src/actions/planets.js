@@ -36,11 +36,3 @@ export function fetchPlanetsFailure() {
     type: FETCH_PLANETS_FAILURE,
   };
 }
-
-export const GO_TO_PLANETS = "@@planets/GO_TO";
-export function goToPlanets() {
-  return {
-    type: GO_TO_PLANETS,
-    url: "/planets",
-  };
-}

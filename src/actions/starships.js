@@ -36,11 +36,3 @@ export function fetchStarshipsFailure() {
     type: FETCH_STARSHIPS_FAILURE,
   };
 }
-
-export const GO_TO_STARSHIPS = "@@starships/GO_TO";
-export function goToStarships() {
-  return {
-    type: GO_TO_STARSHIPS,
-    url: "/starships",
-  };
-}

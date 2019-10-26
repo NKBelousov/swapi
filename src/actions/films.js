@@ -36,11 +36,3 @@ export function fetchFilmsFailure() {
     type: FETCH_FILMS_FAILURE,
   };
 }
-
-export const GO_TO_FILMS = "@@films/GO_TO";
-export function goToFilms() {
-  return {
-    type: GO_TO_FILMS,
-    url: "/films",
-  };
-}

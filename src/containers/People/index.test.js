@@ -15,7 +15,7 @@ describe('People', () => {
   })
 
   Object.values(statuses).map(status => {
-    it(`should render status "${status}" without crashing`, () => {
+    it.skip(`should render status "${status}" without crashing`, () => {
       ReactDOM.render(<People
         data={{
           data: [],
