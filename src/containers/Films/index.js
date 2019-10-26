@@ -1,11 +1,12 @@
 import React, { memo } from "react";
 import { map } from "lodash";
 import { connect } from 'react-redux'
-import { createSelector } from 'reselect'
 
+import { FILMS } from "~/constants/entities";
+import { requestFilms } from "~/actions";
+import createEntitySelector from "~/selectors/createEntitySelector";
 import DataFetcher from "~/components/Utility/DataFetcher";
 import Film from "~/components/Film";
-import { requestFilms } from "~/actions";
 
 const Films = memo(props => {
   return <DataFetcher {...props}>
@@ -18,7 +19,7 @@ const Films = memo(props => {
 
 Films.displayName = 'Films'
 
-const mapStateToProps = createSelector([state => state.films], films => ({ data: films }))
+const mapStateToProps = createEntitySelector(FILMS)
 
 const mapDispatchToProps = dispatch => ({
   onRequest: () => dispatch(requestFilms())
