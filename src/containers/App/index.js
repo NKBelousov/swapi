@@ -1,3 +1,4 @@
+import 'normalize.css';
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { find } from "lodash";
