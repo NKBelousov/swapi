@@ -1,7 +1,8 @@
+import { Link } from 'react-router-dom'
+import { map } from "lodash";
+import { withRouter } from "react-router";
 import React, { memo } from "react";
 import styled from "styled-components";
-import { map } from "lodash";
-import { Link } from 'react-router-dom'
 
 import * as routes from '~/constants/routes'
 import { devices } from '~/constants/media'
@@ -13,9 +14,11 @@ const Navigation = styled.nav`
   padding: 1em;
 `;
 
-const TextLink = styled.span`
+const TextLink = styled(Link)`
+  color: ${props => props.theme.secondary};
   border-bottom: 1px solid ${props => props.theme.secondary};
   cursor: pointer;
+  text-decoration: none;
   margin: 0 0.5em;
   text-align: center;
 
@@ -29,19 +32,18 @@ const ActiveLink = styled(TextLink)`
   background: ${props => props.theme.secondary};
 `;
 
-const Nav = memo(({ items }) => {
+const Nav = memo(({ items, history }) => {
   return (
     <Navigation>
       {map(items, l => {
         const props = {
-          key: l.url,
           children: l.name,
+          key: l.url,
+          to: l.url,
         };
-        return <Link key={l.url} to={l.url}>
-          {l.active
-            ? <ActiveLink {...props} />
-            : <TextLink {...props} />}
-        </Link>
+        return history.location.pathname === l.url
+          ? <ActiveLink {...props} />
+          : <TextLink {...props} />
       })}
     </Navigation>
   );
@@ -65,4 +67,4 @@ Nav.defaultProps = {
 
 Nav.displayName = 'Nav'
 
-export default Nav;
+export default withRouter(Nav);
