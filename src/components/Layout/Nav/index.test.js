@@ -1,9 +1,12 @@
 import React from "react";
 import renderer from "react-test-renderer";
+import { BrowserRouter as Router } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
 
+import theme from "~/constants/theme";
 import Nav from "./index.js";
 
-test.skip("Should render correctly", () => {
+test("Should render correctly", () => {
   const ITEMS = [
     {
       url: "/first",
@@ -15,12 +18,18 @@ test.skip("Should render correctly", () => {
     },
   ];
   const tree = renderer
-    .create(<Nav
-      items={ITEMS}
-      onPeople={alert}
-      onPlanets={alert}
-      onFilms={alert}
-    />)
+    .create(
+      <ThemeProvider theme={theme}>
+        <Router>
+          <Nav
+            items={ITEMS}
+            onPeople={alert}
+            onPlanets={alert}
+            onFilms={alert}
+          />
+        </Router>
+      </ThemeProvider>
+    )
     .toJSON();
   expect(tree).toMatchSnapshot();
 });
