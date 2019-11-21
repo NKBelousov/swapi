@@ -1,10 +1,18 @@
 import React from "react";
 import renderer from "react-test-renderer";
+import { ThemeProvider } from "styled-components";
 
 import Preloader from "./index.js";
+import theme from "~/constants/theme";
 
 test("Should render correctly", () => {
   const text = "Preloader";
-  const tree = renderer.create(<Preloader text={text} />).toJSON();
+  const tree = renderer
+    .create(
+      <ThemeProvider theme={theme}>
+        <Preloader text={text} />
+      </ThemeProvider>
+    )
+    .toJSON();
   expect(tree).toMatchSnapshot();
 });
