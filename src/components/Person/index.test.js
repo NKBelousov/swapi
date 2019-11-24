@@ -1,12 +1,19 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from "react";
+import ReactDOM from "react-dom";
+import { ThemeProvider } from "styled-components";
 
-import Person from './index'
+import Person from "./index";
+import theme from "~/constants/theme";
 
-describe('Person', () => {
+describe("Person", () => {
   it(`should render without crashing`, () => {
-    const div = document.createElement('div')
-    ReactDOM.render(<Person />, div)
-    ReactDOM.unmountComponentAtNode(div)
-  })
-})
+    const div = document.createElement("div");
+    ReactDOM.render(
+      <ThemeProvider theme={theme}>
+        <Person />
+      </ThemeProvider>,
+      div
+    );
+    ReactDOM.unmountComponentAtNode(div);
+  });
+});
