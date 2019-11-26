@@ -1,28 +1,42 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from "react";
+import ReactDOM from "react-dom";
+import { ThemeProvider } from "styled-components";
+import { Provider } from "react-redux";
+import { createStore } from "redux";
 
-import * as statuses from '~/constants/statuses'
+import * as statuses from "~/constants/statuses";
+import rootReducer from "~/reducers";
+import theme from "~/constants/theme";
 
-import Planets from './index'
+import Planets from "./index";
 
-describe('Planets', () => {
-  let div
+describe("Planets", () => {
+  let div;
   beforeEach(() => {
-    div = document.createElement('div')
-  })
+    div = document.createElement("div");
+  });
   afterEach(() => {
-    ReactDOM.unmountComponentAtNode(div)
-  })
+    ReactDOM.unmountComponentAtNode(div);
+  });
+
+  const store = createStore(rootReducer);
 
   Object.values(statuses).map(status => {
-    it.skip(`should render status "${status}" without crashing`, () => {
-      ReactDOM.render(<Planets
-        data={{
-          data: [],
-          status: status
-        }}
-        onRequest={jest.fn()}
-      />, div)
-    })
-  })
-})
+    it(`should render status "${status}" without crashing`, () => {
+      ReactDOM.render(
+        <Provider store={store}>
+          <ThemeProvider theme={theme}>
+            <Planets
+              data={{
+                data: [],
+                status: status,
+              }}
+              onRequest={jest.fn()}
+            />
+          </ThemeProvider>
+        </Provider>,
+        div
+      );
+    });
+  });
+});
