@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { PureComponent } from "react";
+import React, { memo } from "react";
 import styled from "styled-components";
 
 const Title = styled.h1`
@@ -10,16 +10,18 @@ const Title = styled.h1`
   padding: 1rem 0rem;
 `;
 
-class Header extends PureComponent {
-  static get propTypes() {
-    return {
-      tooltip: PropTypes.string,
-      children: PropTypes.node,
-    };
-  }
-  render() {
-    return <Title title={this.props.tooltip}>{this.props.children}</Title>;
-  }
-}
+const Header = memo(({ tooltip, children }) => (
+  <Title title={tooltip}>{children}</Title>
+));
+
+Header.propTypes = {
+  tooltip: PropTypes.string,
+  children: PropTypes.node,
+};
+
+Header.defaultProps = {
+  tooltip: "",
+  children: null,
+};
 
 export default Header;
