@@ -1,6 +1,5 @@
-import React, { PureComponent } from "react";
+import React, { memo } from "react";
 import PropTypes from "prop-types";
-
 import styled, { keyframes } from "styled-components";
 
 const Wrapper = styled.div`
@@ -34,25 +33,17 @@ const Loader = styled.div`
   width: 1rem;
 `;
 
-class Preloader extends PureComponent {
-  static get propTypes() {
-    return {
-      text: PropTypes.string,
-    };
-  }
-  static get defaultProps() {
-    return {
-      text: "Loading...",
-    };
-  }
-  render() {
-    return (
-      <Wrapper>
-        <Loader />
-        <Text>{this.props.text}</Text>
-      </Wrapper>
-    );
-  }
-}
+const Preloader = memo(({ children }) => (
+  <Wrapper>
+    <Loader />
+    <Text>{children}</Text>
+  </Wrapper>
+));
+
+Preloader.displayName = "Preloader";
+
+Preloader.defaultProps = {
+  children: "Loading...",
+};
 
 export default Preloader;

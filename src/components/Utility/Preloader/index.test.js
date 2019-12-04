@@ -10,7 +10,7 @@ test("Should render correctly", () => {
   const tree = renderer
     .create(
       <ThemeProvider theme={theme}>
-        <Preloader text={text} />
+        <Preloader>{text}</Preloader>
       </ThemeProvider>
     )
     .toJSON();
