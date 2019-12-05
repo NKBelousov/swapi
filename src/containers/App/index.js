@@ -1,6 +1,6 @@
-import 'normalize.css';
-import React, { memo } from "react";
-import { Route, Switch } from 'react-router'
+import "normalize.css";
+import React, { memo, lazy, Suspense } from "react";
+import { Route, Switch } from "react-router";
 
 import * as routes from "~/constants/routes";
 import Films from "~/containers/Films";
@@ -10,7 +10,9 @@ import Page from "~/components/Layout/Page";
 import People from "~/containers/People";
 import Planets from "~/containers/Planets";
 import Starships from "~/containers/Starships";
-import PageNotFound from '~/components/PageNotFound';
+import Preloader from "~/components/Utility/Preloader";
+
+const PageNotFound = lazy(() => import("~/components/PageNotFound"));
 
 const App = memo(() => (
   <main>
@@ -22,10 +24,16 @@ const App = memo(() => (
         <Route exact path={routes.FILMS} component={Films} />
         <Route exact path={routes.PLANETS} component={Planets} />
         <Route exact path={routes.STARSHIPS} component={Starships} />
-        <Route component={PageNotFound} />
+        <Route
+          render={() => (
+            <Suspense fallback={<Preloader />}>
+              <PageNotFound />
+            </Suspense>
+          )}
+        />
       </Switch>
     </Page>
   </main>
-))
+));
 
-export default App
+export default App;
