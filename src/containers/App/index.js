@@ -25,9 +25,9 @@ const App = memo(() => (
         <Route exact path={routes.PLANETS} component={Planets} />
         <Route exact path={routes.STARSHIPS} component={Starships} />
         <Route
-          render={() => (
+          render={props => (
             <Suspense fallback={<Preloader />}>
-              <PageNotFound />
+              <PageNotFound {...props} />
             </Suspense>
           )}
         />
