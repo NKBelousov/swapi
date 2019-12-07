@@ -1,24 +1,8 @@
-import axios from "axios";
-import { all, call, put, takeLatest } from "@redux-saga/core/effects";
+import { all } from "redux-saga/effects";
 
-import * as actions from "~/actions/people";
+import { watchPeople } from "./peopleSagas";
+import { watchPlanets } from "./planetsSagas";
 
-const API_ROOT = `https://swapi.co/api`;
-
-function* fetchPeople() {
-  yield put(actions.fetchPeople());
-  try {
-    const response = yield call(axios.get, `${API_ROOT}/people/`);
-    yield put(actions.fetchPeopleSuccess(response.data.results));
-  } catch (e) {
-    yield put(actions.fetchPeopleFailure(e));
-  }
-}
-
-function* watchPeople() {
-  yield takeLatest(actions.REQUEST_PEOPLE, fetchPeople);
-}
-
-export default function* () {
-  yield all([watchPeople()]);
+export default function*() {
+  yield all([watchPeople(), watchPlanets()]);
 }
