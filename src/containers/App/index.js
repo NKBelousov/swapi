@@ -18,7 +18,6 @@ const App = memo(() => (
   <main>
     <Nav />
     <Page>
-      <Header tooltip="Page Header Tooltip">Swapi Client</Header>
       <Switch>
         <Route exact path={routes.PEOPLE} component={People} />
         <Route exact path={routes.FILMS} component={Films} />
