@@ -1,11 +1,11 @@
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 import { map } from "lodash";
 import { withRouter } from "react-router";
 import React, { memo } from "react";
 import styled from "styled-components";
 
-import * as routes from '~/constants/routes'
-import { devices } from '~/constants/media'
+import * as routes from "~/constants/routes";
+import { devices } from "~/constants/media";
 
 const Navigation = styled.nav`
   background: ${props => props.theme.primary};
@@ -21,6 +21,7 @@ const TextLink = styled(Link)`
   text-decoration: none;
   margin: 0 0.5em;
   text-align: center;
+  padding: 0.5em;
 
   ${devices.mobile} {
     display: block;
@@ -41,30 +42,37 @@ const Nav = memo(({ items, history }) => {
           key: l.url,
           to: l.url,
         };
-        return history.location.pathname === l.url
-          ? <ActiveLink {...props} />
-          : <TextLink {...props} />
+        return history.location.pathname === l.url ? (
+          <ActiveLink {...props} />
+        ) : (
+          <TextLink {...props} />
+        );
       })}
     </Navigation>
   );
-})
+});
 
 Nav.defaultProps = {
-  items: [{
-    url: routes.PEOPLE,
-    name: 'People'
-  }, {
-    url: routes.FILMS,
-    name: 'Films',
-  }, {
-    url: routes.PLANETS,
-    name: 'Planets',
-  }, {
-    url: routes.STARSHIPS,
-    name: 'Starships'
-  }]
-}
+  items: [
+    {
+      url: routes.PEOPLE,
+      name: "People",
+    },
+    {
+      url: routes.FILMS,
+      name: "Films",
+    },
+    {
+      url: routes.PLANETS,
+      name: "Planets",
+    },
+    {
+      url: routes.STARSHIPS,
+      name: "Starships",
+    },
+  ],
+};
 
-Nav.displayName = 'Nav'
+Nav.displayName = "Nav";
 
 export default withRouter(Nav);

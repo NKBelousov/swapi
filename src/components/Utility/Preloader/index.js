@@ -9,7 +9,7 @@ const Wrapper = styled.div`
 `;
 
 const Text = styled.span`
-  color: ${props => props.theme.primary};
+  color: ${props => props.theme.secondary};
   font-size: 2rem;
   padding: 1rem;
 `;

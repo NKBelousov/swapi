@@ -1,5 +1,5 @@
-const PRIMARY = "#db2c2c";
-const SECONDARY = "#fff";
+const PRIMARY = "#000";
+const SECONDARY = "#ffc409";
 
 export default Object.freeze({
   primary: PRIMARY,

@@ -4,9 +4,9 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const Block = styled.div`
-  background: ${props => props.theme.primary};
-  border: 1px solid ${props => props.theme.primary};
-  color: ${props => props.theme.secondary};
+  background: ${props => props.theme.secondary};
+  border: 1px solid ${props => props.theme.secondary};
+  color: ${props => props.theme.primary};
   cursor: pointer;
   display: block;
   margin: 0 auto;
@@ -18,7 +18,7 @@ const Block = styled.div`
   }
 
   &:active {
-    box-shadow: 0 0 15px #000 inset;
+    box-shadow: 0 0 15px ${props => props.theme.secondary} inset;
   }
 `;
 
@@ -36,7 +36,7 @@ class Button extends PureComponent {
   }
   static get defaultProps() {
     return {
-      children: 'Button'
+      children: "Button",
     };
   }
   render() {

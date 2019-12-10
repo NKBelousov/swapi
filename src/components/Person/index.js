@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import React, { PureComponent } from "react";
 import styled from "styled-components";
 
-import { devices } from '~/constants/media';
+import { devices } from "~/constants/media";
 
 const border = "5px";
 const width = percent => `
@@ -19,7 +19,7 @@ const Wrapper = styled.div`
   transition: transform 0.3s linear, border 0.3s linear;
 
   &:hover {
-    border: ${border} solid ${props => props.theme.primary};
+    border: ${border} solid ${props => props.theme.secondary};
   }
 
   ${devices.mobile} {
@@ -48,7 +48,7 @@ const Item = styled.div`
 `;
 
 const Value = styled.div`
-  color: #333;
+  color: ${props => props.theme.secondary};
   font-size: 1.5em;
   text-align: center;
 `;

@@ -4,18 +4,26 @@ import { Route, Switch } from "react-router";
 
 import * as routes from "~/constants/routes";
 import Films from "~/containers/Films";
-import Header from "~/components/Layout/Header";
 import Nav from "~/components/Layout/Nav";
 import Page from "~/components/Layout/Page";
 import People from "~/containers/People";
 import Planets from "~/containers/Planets";
 import Starships from "~/containers/Starships";
 import Preloader from "~/components/Utility/Preloader";
+import styled from "styled-components";
 
 const PageNotFound = lazy(() => import("~/components/PageNotFound"));
 
+const Background = styled.div`
+  background: #000;
+  z-index: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+`;
+
 const App = memo(() => (
-  <main>
+  <Background>
     <Nav />
     <Page>
       <Switch>
@@ -32,7 +40,7 @@ const App = memo(() => (
         />
       </Switch>
     </Page>
-  </main>
+  </Background>
 ));
 
 export default App;

@@ -2,17 +2,17 @@
 
 exports[`Should render correctly 1`] = `
 <nav
-  className="sc-bdVaJa bPufhP"
+  className="sc-bdVaJa fNmZzc"
 >
   <a
-    className="sc-bwzfXH jCgOeb"
+    className="sc-bwzfXH bXIvsp"
     href="/first"
     onClick={[Function]}
   >
     First
   </a>
   <a
-    className="sc-bwzfXH jCgOeb"
+    className="sc-bwzfXH bXIvsp"
     href="/second"
     onClick={[Function]}
   >

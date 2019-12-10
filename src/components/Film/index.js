@@ -15,7 +15,7 @@ const Wrapper = styled.div`
   width: ${width};
 
   &:hover {
-    border: ${border} solid ${props => props.theme.primary};
+    border: ${border} solid ${props => props.theme.secondary};
   }
 `;
 
@@ -28,7 +28,7 @@ const Item = styled.div`
 `;
 
 const Value = styled.div`
-  color: #333;
+  color: ${props => props.theme.secondary};
   font-size: 1.5em;
   text-align: center;
 `;
