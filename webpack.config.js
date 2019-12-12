@@ -1,9 +1,10 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const WebpackAutoInjectVersion = require("webpack-auto-inject-version");
+const path = require("path");
 
 module.exports = {
   devServer: {
-    historyApiFallback: true
+    historyApiFallback: true,
   },
   resolve: {
     alias: {
@@ -14,6 +15,7 @@ module.exports = {
   output: {
     path: __dirname + "/dist",
     filename: "bundle.js",
+    publicPath: "/",
   },
   mode: process.env.NODE_ENV,
   module: {
@@ -28,7 +30,7 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        use: ["style-loader", "css-loader"],
       },
     ],
   },
