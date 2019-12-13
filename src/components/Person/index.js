@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import React, { PureComponent } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 import { devices } from "~/constants/media";
 
@@ -17,6 +18,10 @@ const Wrapper = styled.div`
   box-sizing: border-box;
   display: inline-block;
   transition: transform 0.3s linear, border 0.3s linear;
+
+  a {
+    text-decoration: none;
+  }
 
   &:hover {
     border: ${border} solid ${props => props.theme.secondary};
@@ -67,9 +72,11 @@ class Person extends PureComponent {
   render() {
     return (
       <Wrapper>
-        <Item>
-          <Value>{this.props.name}</Value>
-        </Item>
+        <Link to={`/person/${this.props.name}`}>
+          <Item>
+            <Value>{this.props.name}</Value>
+          </Item>
+        </Link>
       </Wrapper>
     );
   }

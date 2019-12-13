@@ -14,6 +14,16 @@ function* fetchPeople() {
   }
 }
 
+export function* fetchPerson({ id }) {
+  yield put(actions.fetchPerson(id));
+  try {
+    const response = yield call(axios.get, `${API_ROOT}/people/${id}`);
+    yield put(actions.fetchPersonSuccess(response.data));
+  } catch (e) {
+    yield put(actions.fetchPersonFailure(e));
+  }
+}
+
 export function* watchPeople() {
   yield takeLatest(actions.REQUEST_PEOPLE, fetchPeople);
 }
