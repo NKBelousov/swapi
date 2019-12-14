@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import { map } from "lodash";
 import React, { memo } from "react";
 
-import { requestStarships } from "~/actions";
+import { fetchStarships } from "~/actions";
 import { STARSHIPS } from "~/constants/entities";
 import createEntitySelector from "~/selectors/createEntitySelector";
 import DataFetcher from "~/components/Utility/DataFetcher";
@@ -30,7 +30,7 @@ Starships.displayName = "Starships";
 const mapStateToProps = createEntitySelector(STARSHIPS);
 
 const mapDispatchToProps = dispatch => ({
-  onRequest: () => dispatch(requestStarships()),
+  onRequest: () => dispatch(fetchStarships()),
 });
 
 export default connect(

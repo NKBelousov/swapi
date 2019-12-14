@@ -3,7 +3,7 @@ import { map } from "lodash";
 import React, { memo } from "react";
 
 import { PLANETS } from "~/constants/entities";
-import { requestPlanets } from "~/actions";
+import { fetchPlanets } from "~/actions";
 import createEntitySelector from "~/selectors/createEntitySelector";
 import DataFetcher from "~/components/Utility/DataFetcher";
 import Header from "~/components/Layout/Header";
@@ -30,7 +30,7 @@ Planets.displayName = "Planets";
 const mapStateToProps = createEntitySelector(PLANETS);
 
 const mapDispatchToProps = dispatch => ({
-  onRequest: () => dispatch(requestPlanets()),
+  onRequest: () => dispatch(fetchPlanets()),
 });
 
 export default connect(

@@ -1,9 +1,9 @@
-import { READY, LOADING, NONE } from '~/constants/statuses'
+import { READY, LOADING, NONE } from "~/constants/statuses";
 
 export const INITIAL_STATE = {
   data: [],
-  status: NONE
-}
+  status: NONE,
+};
 
 /**
  * @param {Object} config
@@ -18,21 +18,21 @@ export function createReducer({ FETCH, SUCCESS, FAILURE }) {
         return {
           ...state,
           status: LOADING,
-        }
+        };
       case SUCCESS:
         return {
           ...state,
-          data: action.data,
+          data: [...state.data, ...action.data],
           status: READY,
-        }
+        };
       case FAILURE:
         return {
           ...state,
           data: [],
           status: NONE,
-        }
+        };
       default:
-        return state
+        return state;
     }
-  }
+  };
 }

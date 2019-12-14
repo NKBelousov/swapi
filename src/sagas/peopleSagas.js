@@ -1,29 +1,17 @@
-import axios from "axios";
-import { call, put, takeLatest } from "@redux-saga/core/effects";
+import { takeLatest } from "@redux-saga/core/effects";
 
 import * as actions from "~/actions/people";
 import { API_ROOT } from "~/constants/Api";
-
-function* fetchPeople() {
-  yield put(actions.fetchPeople());
-  try {
-    const response = yield call(axios.get, `${API_ROOT}/people/`);
-    yield put(actions.fetchPeopleSuccess(response.data.results));
-  } catch (e) {
-    yield put(actions.fetchPeopleFailure(e));
-  }
-}
-
-export function* fetchPerson({ id }) {
-  yield put(actions.fetchPerson(id));
-  try {
-    const response = yield call(axios.get, `${API_ROOT}/people/${id}`);
-    yield put(actions.fetchPersonSuccess(response.data));
-  } catch (e) {
-    yield put(actions.fetchPersonFailure(e));
-  }
-}
+import { createGreedySaga } from "./helpers";
 
 export function* watchPeople() {
-  yield takeLatest(actions.REQUEST_PEOPLE, fetchPeople);
+  yield takeLatest(
+    actions.FETCH_PEOPLE,
+    createGreedySaga({
+      url: `${API_ROOT}/people/`,
+      fetch: actions.fetchPeople,
+      success: actions.fetchPeopleSuccess,
+      failure: actions.fetchPeopleFailure,
+    })
+  );
 }

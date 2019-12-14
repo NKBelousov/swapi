@@ -3,7 +3,7 @@ import { map } from "lodash";
 import { connect } from "react-redux";
 
 import { FILMS } from "~/constants/entities";
-import { requestFilms } from "~/actions";
+import { fetchFilms } from "~/actions";
 import createEntitySelector from "~/selectors/createEntitySelector";
 import DataFetcher from "~/components/Utility/DataFetcher";
 import Film from "~/components/Film";
@@ -30,7 +30,7 @@ Films.displayName = "Films";
 const mapStateToProps = createEntitySelector(FILMS);
 
 const mapDispatchToProps = dispatch => ({
-  onRequest: () => dispatch(requestFilms()),
+  onRequest: () => dispatch(fetchFilms()),
 });
 
 export default connect(

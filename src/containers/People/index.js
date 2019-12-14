@@ -3,7 +3,7 @@ import { map } from "lodash";
 import React, { memo } from "react";
 
 import { PEOPLE } from "~/constants/entities";
-import { requestPeople } from "~/actions";
+import { fetchPeople } from "~/actions";
 import createEntitySelector from "~/selectors/createEntitySelector";
 import DataFetcher from "~/components/Utility/DataFetcher";
 import Header from "~/components/Layout/Header";
@@ -30,7 +30,7 @@ People.displayName = "People";
 const mapStateToProps = createEntitySelector(PEOPLE);
 
 const mapDispatchToProps = dispatch => ({
-  onRequest: () => dispatch(requestPeople()),
+  onRequest: () => dispatch(fetchPeople()),
 });
 
 export default connect(

@@ -1,8 +1,3 @@
-export const REQUEST_PLANETS = "@@planets/REQUEST";
-export const requestPlanets = () => ({
-  type: REQUEST_PLANETS,
-});
-
 export const FETCH_PLANETS = "@@planets/FETCH";
 export const fetchPlanets = () => ({
   type: FETCH_PLANETS,
