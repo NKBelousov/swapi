@@ -11,7 +11,7 @@ const Navigation = styled.nav`
   background: ${props => props.theme.primary};
   color: ${props => props.theme.secondary};
   font-size: 2em;
-  padding: 1em;
+  padding: 1em 0;
 `;
 
 const TextLink = styled(Link)`
@@ -19,7 +19,7 @@ const TextLink = styled(Link)`
   border-bottom: 1px solid ${props => props.theme.secondary};
   cursor: pointer;
   text-decoration: none;
-  margin: 0 0.5em;
+  margin: 0 0.5em 0 0;
   text-align: center;
   padding: 0.5em;
 

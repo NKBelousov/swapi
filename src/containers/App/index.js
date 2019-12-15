@@ -20,7 +20,7 @@ const Background = styled.div`
   z-index: 0;
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
+  overflow: auto;
 `;
 
 const App = memo(() => (

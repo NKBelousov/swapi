@@ -9,6 +9,8 @@ const Title = styled.h1`
   font-weight: bold;
   margin: 0 auto;
   padding: 1rem 0rem;
+  text-align: center;
+  text-transform: uppercase;
 `;
 
 const Header = memo(({ tooltip, children }) => (
