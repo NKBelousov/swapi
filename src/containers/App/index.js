@@ -4,15 +4,15 @@ import { Route, Switch } from "react-router";
 import styled from "styled-components";
 
 import * as routes from "~/constants/routes";
-import Films from "~/containers/Films";
 import Nav from "~/components/Layout/Nav";
 import Page from "~/components/Layout/Page";
-import People from "~/containers/People";
-import Planets from "~/containers/Planets";
-import Starships from "~/containers/Starships";
 import Preloader from "~/components/Utility/Preloader";
 
+const People = lazy(() => import("~/containers/People"));
 const PersonInfo = lazy(() => import("~/containers/PersonInfo"));
+const Films = lazy(() => import("~/containers/Films"));
+const Planets = lazy(() => import("~/containers/Planets"));
+const Starships = lazy(() => import("~/containers/Starships"));
 const PageNotFound = lazy(() => import("~/components/PageNotFound"));
 
 const Background = styled.div`
@@ -28,7 +28,15 @@ const App = memo(() => (
     <Nav />
     <Page>
       <Switch>
-        <Route exact path={routes.PEOPLE} component={People} />
+        <Route
+          exact
+          path={routes.PEOPLE}
+          render={props => (
+            <Suspense fallback={<Preloader />}>
+              <People {...props} />
+            </Suspense>
+          )}
+        />
         <Route
           path={routes.PERSON}
           render={props => (
@@ -37,9 +45,33 @@ const App = memo(() => (
             </Suspense>
           )}
         />
-        <Route exact path={routes.FILMS} component={Films} />
-        <Route exact path={routes.PLANETS} component={Planets} />
-        <Route exact path={routes.STARSHIPS} component={Starships} />
+        <Route
+          exact
+          path={routes.FILMS}
+          render={props => (
+            <Suspense fallback={<Preloader />}>
+              <Films {...props} />
+            </Suspense>
+          )}
+        />
+        <Route
+          exact
+          path={routes.PLANETS}
+          render={props => (
+            <Suspense fallback={<Preloader />}>
+              <Planets {...props} />
+            </Suspense>
+          )}
+        />
+        <Route
+          exact
+          path={routes.STARSHIPS}
+          render={props => (
+            <Suspense fallback={<Preloader />}>
+              <Starships {...props} />
+            </Suspense>
+          )}
+        />
         <Route
           render={props => (
             <Suspense fallback={<Preloader />}>
