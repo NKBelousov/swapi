@@ -59,6 +59,10 @@ Nav.defaultProps = {
       name: "People",
     },
     {
+      url: routes.SPECIES,
+      name: "Species",
+    },
+    {
       url: routes.FILMS,
       name: "Films",
     },

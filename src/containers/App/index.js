@@ -9,6 +9,7 @@ import Page from "~/components/Layout/Page";
 import Preloader from "~/components/Utility/Preloader";
 
 const People = lazy(() => import("~/containers/People"));
+const Species = lazy(() => import("~/containers/Species"));
 const PersonInfo = lazy(() => import("~/containers/PersonInfo"));
 const Films = lazy(() => import("~/containers/Films"));
 const Planets = lazy(() => import("~/containers/Planets"));
@@ -34,6 +35,15 @@ const App = memo(() => (
           render={props => (
             <Suspense fallback={<Preloader />}>
               <People {...props} />
+            </Suspense>
+          )}
+        />
+        <Route
+          exact
+          path={routes.SPECIES}
+          render={props => (
+            <Suspense fallback={<Preloader />}>
+              <Species {...props} />
             </Suspense>
           )}
         />
