@@ -74,6 +74,10 @@ Nav.defaultProps = {
       url: routes.STARSHIPS,
       name: "Starships",
     },
+    {
+      url: routes.VEHICLES,
+      name: "Vehicles",
+    },
   ],
 };
 

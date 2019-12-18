@@ -8,13 +8,14 @@ import Nav from "~/components/Layout/Nav";
 import Page from "~/components/Layout/Page";
 import Preloader from "~/components/Utility/Preloader";
 
-const People = lazy(() => import("~/containers/People"));
-const Species = lazy(() => import("~/containers/Species"));
-const PersonInfo = lazy(() => import("~/containers/PersonInfo"));
 const Films = lazy(() => import("~/containers/Films"));
-const Planets = lazy(() => import("~/containers/Planets"));
-const Starships = lazy(() => import("~/containers/Starships"));
 const PageNotFound = lazy(() => import("~/components/PageNotFound"));
+const People = lazy(() => import("~/containers/People"));
+const PersonInfo = lazy(() => import("~/containers/PersonInfo"));
+const Planets = lazy(() => import("~/containers/Planets"));
+const Species = lazy(() => import("~/containers/Species"));
+const Starships = lazy(() => import("~/containers/Starships"));
+const Vehicles = lazy(() => import("~/containers/Vehicles"));
 
 const Background = styled.div`
   background: #000;
@@ -79,6 +80,15 @@ const App = memo(() => (
           render={props => (
             <Suspense fallback={<Preloader />}>
               <Starships {...props} />
+            </Suspense>
+          )}
+        />
+        <Route
+          exact
+          path={routes.VEHICLES}
+          render={props => (
+            <Suspense fallback={<Preloader />}>
+              <Vehicles {...props} />
             </Suspense>
           )}
         />

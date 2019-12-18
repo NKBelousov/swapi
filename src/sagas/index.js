@@ -5,13 +5,15 @@ import { watchPlanets } from "./planetsSagas";
 import { watchFilms } from "./filmsSagas";
 import { watchStarships } from "./starshipsSagas";
 import { watchSpecies } from "./speciesSagas";
+import { watchVehicles } from "./vehiclesSagas";
 
 export default function*() {
   yield all([
-    watchPeople(),
-    watchSpecies(),
-    watchPlanets(),
     watchFilms(),
+    watchPeople(),
+    watchPlanets(),
+    watchSpecies(),
     watchStarships(),
+    watchVehicles(),
   ]);
 }
