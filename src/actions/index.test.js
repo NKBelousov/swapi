@@ -1,11 +1,8 @@
-import * as films from "./films";
-import * as people from "./people";
-import * as planets from "./planets";
-import * as starships from "./starships";
+import * as actions from "./index";
 
-import { flatten, uniq, values } from "lodash";
+import { uniq } from "lodash";
 
 test("Every action and action creator is unique", () => {
-  const ACTIONS = flatten([films, planets, people, starships].map(values));
+  const ACTIONS = Object.values(actions);
   expect(ACTIONS).toHaveLength(uniq(ACTIONS).length);
 });
