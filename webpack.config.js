@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const WebpackAutoInjectVersion = require("webpack-auto-inject-version");
-const path = require("path");
+
+const isProduction = process.env.NODE_ENV === "production";
 
 module.exports = {
   devServer: {
@@ -39,8 +40,13 @@ module.exports = {
       environment: process.env.NODE_ENV,
       filename: __dirname + "/dist/index.html",
       hash: true,
+      minify: isProduction,
+      showErrors: !isProduction,
       template: __dirname + "/src/template.ejs",
       title: "Swapi Client",
+      meta: {
+        viewport: "width=device-width, initial-scale=1, shrink-to-fit=no",
+      },
     }),
     new WebpackAutoInjectVersion({
       components: {
