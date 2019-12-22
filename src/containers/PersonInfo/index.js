@@ -28,6 +28,17 @@ const ItemValue = styled.span`
   text-transform: uppercase;
 `;
 
+const renderGender = gender => {
+  switch (gender) {
+    case "male":
+      return "♂";
+    case "female":
+      return "♀";
+    default:
+      return "";
+  }
+};
+
 const PersonInfo = memo(() => {
   const { name } = useParams();
   const person = useSelector(getPersonByName(name));
@@ -35,7 +46,7 @@ const PersonInfo = memo(() => {
   return (
     <Content>
       <Name>
-        {person.name} {person.gender === "male" ? "♂" : "♀"}
+        {person.name} {renderGender(person.gender)}
       </Name>
       <Item>
         Height: <ItemValue>{person.height}</ItemValue>
