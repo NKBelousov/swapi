@@ -8,14 +8,30 @@ import Nav from "~/components/Layout/Nav";
 import Page from "~/components/Layout/Page";
 import Preloader from "~/components/Utility/Preloader";
 
-const Films = lazy(() => import("~/containers/Films"));
-const PageNotFound = lazy(() => import("~/components/PageNotFound"));
-const People = lazy(() => import("~/containers/People"));
-const PersonInfo = lazy(() => import("~/containers/PersonInfo"));
-const Planets = lazy(() => import("~/containers/Planets"));
-const Species = lazy(() => import("~/containers/Species"));
-const Starships = lazy(() => import("~/containers/Starships"));
-const Vehicles = lazy(() => import("~/containers/Vehicles"));
+const Films = lazy(() =>
+  import(/* webpackPrefetch: true */ "~/containers/Films")
+);
+const PageNotFound = lazy(() =>
+  import(/* webpackPrefetch: true */ "~/components/PageNotFound")
+);
+const People = lazy(() =>
+  import(/* webpackPrefetch: true */ "~/containers/People")
+);
+const PersonInfo = lazy(() =>
+  import(/* webpackPrefetch: true */ "~/containers/PersonInfo")
+);
+const Planets = lazy(() =>
+  import(/* webpackPrefetch: true */ "~/containers/Planets")
+);
+const Species = lazy(() =>
+  import(/* webpackPrefetch: true */ "~/containers/Species")
+);
+const Starships = lazy(() =>
+  import(/* webpackPrefetch: true */ "~/containers/Starships")
+);
+const Vehicles = lazy(() =>
+  import(/* webpackPrefetch: true */ "~/containers/Vehicles")
+);
 
 const Background = styled.div`
   background: #000;

@@ -15,7 +15,8 @@ module.exports = {
   entry: __dirname + "/src/index.js",
   output: {
     path: __dirname + "/dist",
-    filename: "bundle.js",
+    filename: "[name].[hash].js",
+    chunkFilename: "[name].[hash].js",
     publicPath: "/",
   },
   mode: process.env.NODE_ENV,
@@ -60,4 +61,15 @@ module.exports = {
       },
     }),
   ],
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: "vendors",
+          chunks: "all",
+        },
+      },
+    },
+  },
 };
