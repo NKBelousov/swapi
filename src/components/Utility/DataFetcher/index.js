@@ -1,6 +1,5 @@
 import React, { memo, useEffect } from "react";
 
-import Button from "~/components/Utility/Button";
 import Preloader from "~/components/Utility/Preloader";
 
 import Data from "~/prop-types/Data";
