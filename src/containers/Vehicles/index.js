@@ -22,7 +22,7 @@ const Vehicles = memo(props => {
         {data =>
           map(data, d => {
             const { name } = d;
-            return <Vehicle>{name}</Vehicle>;
+            return <Vehicle key={name}>{name}</Vehicle>;
           })
         }
       </DataFetcher>
