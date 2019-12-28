@@ -1,9 +1,11 @@
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
-import React, { memo } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import React, { memo, useEffect } from "react";
 import styled from "styled-components";
 
 import { getPersonByName } from "~/selectors/getPersonByName";
+import { fetchPeople } from "~/actions";
+import Preloader from "~/components/Utility/Preloader";
 
 const Content = styled.div`
   color: ${props => props.theme.secondary};
@@ -42,6 +44,17 @@ const renderGender = gender => {
 const PersonInfo = memo(() => {
   const { name } = useParams();
   const person = useSelector(getPersonByName(name));
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (!person) {
+      dispatch(fetchPeople());
+    }
+  }, [person]);
+
+  if (!person) {
+    return <Preloader />;
+  }
 
   return (
     <Content>
