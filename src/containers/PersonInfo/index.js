@@ -6,6 +6,7 @@ import styled from "styled-components";
 import { getPersonByName } from "~/selectors/getPersonByName";
 import { fetchPeople } from "~/actions";
 import Preloader from "~/components/Utility/Preloader";
+import Image from "~/components/Layout/Image";
 
 const Content = styled.div`
   color: ${props => props.theme.secondary};
@@ -58,6 +59,7 @@ const PersonInfo = memo(() => {
 
   return (
     <Content>
+      <Image url={person.url} />
       <Name>
         {person.name} {renderGender(person.gender)}
       </Name>
