@@ -17,7 +17,7 @@ const Films = memo(props => {
         {data =>
           map(data, d => {
             const { title } = d;
-            return <Film key={title} title={title} />;
+            return <Film key={title} title={title} url={d.url} />;
           })
         }
       </DataFetcher>

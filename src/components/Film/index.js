@@ -2,8 +2,10 @@ import PropTypes from "prop-types";
 import React, { PureComponent } from "react";
 import styled from "styled-components";
 
+import Image from "~/components/Layout/Image";
+
 const border = "5px";
-const width = "33.3%";
+const width = "25.0%";
 const Wrapper = styled.div`
   border: ${border} solid transparent;
   border-radius: 15px;
@@ -37,16 +39,19 @@ class Film extends PureComponent {
   static get propTypes() {
     return {
       title: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired,
     };
   }
   static get defaultProps() {
     return {
       title: "",
+      url: "",
     };
   }
   render() {
     return (
       <Wrapper>
+        <Image url={this.props.url} />
         <Item>
           <Value>{this.props.title}</Value>
         </Item>
