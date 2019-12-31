@@ -2,6 +2,8 @@ import PropTypes from "prop-types";
 import React, { PureComponent } from "react";
 import styled from "styled-components";
 
+import Image from "~/components/Layout/Image";
+
 const border = "5px";
 const width = "33.3%";
 const Wrapper = styled.div`
@@ -37,16 +39,19 @@ class Planet extends PureComponent {
   static get propTypes() {
     return {
       name: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired,
     };
   }
   static get defaultProps() {
     return {
       name: "",
+      url: "",
     };
   }
   render() {
     return (
       <Wrapper>
+        <Image url={this.props.url} />
         <Item>
           <Value>{this.props.name}</Value>
         </Item>

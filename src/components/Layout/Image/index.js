@@ -1,6 +1,8 @@
 import styled from "styled-components";
-import React, { memo } from "react";
+import React, { useState, useEffect, memo } from "react";
 import PropTypes from "prop-types";
+
+import Preloader from "~/components/Utility/Preloader";
 
 const ID_REGEX = /(\w+)\/(\d+)/;
 const IMAGE_TYPES = {
@@ -28,7 +30,33 @@ const Avatar = styled.img`
 `;
 
 const Image = memo(({ url }) => {
-  return <Avatar src={getImageUrl(url)} />;
+  const [isLoading, setLoading] = useState(true);
+  const [realUrl, setRealUrl] = useState(url);
+
+  useEffect(() => {
+    setLoading(true);
+    setRealUrl(getImageUrl(url));
+
+    const img = document.createElement("img");
+    img.src = getImageUrl(url);
+    img.style.display = "none";
+    img.onload = () => {
+      setLoading(false);
+    };
+    img.onerror = () => {
+      setLoading(false);
+      setRealUrl(
+        `https://starwars-visualguide.com/assets/img/big-placeholder.jpg`
+      );
+    };
+    document.body.appendChild(img);
+  }, [url]);
+
+  if (isLoading) {
+    return <Preloader />;
+  }
+
+  return <Avatar src={realUrl} />;
 });
 
 Image.displayName = "Image";

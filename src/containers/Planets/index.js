@@ -16,8 +16,8 @@ const Planets = memo(props => {
       <DataFetcher {...props}>
         {data =>
           map(data, d => {
-            const { name } = d;
-            return <Planet key={name} name={name} />;
+            const { name, url } = d;
+            return <Planet key={name} name={name} url={url} />;
           })
         }
       </DataFetcher>
