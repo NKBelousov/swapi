@@ -2,6 +2,8 @@ import PropTypes from "prop-types";
 import React, { memo } from "react";
 import styled from "styled-components";
 
+import Image from "~/components/Layout/Image";
+
 const border = "5px";
 const width = "50%";
 const Wrapper = styled.div`
@@ -33,8 +35,9 @@ const Value = styled.div`
   text-align: center;
 `;
 
-const Starship = memo(({ name }) => (
+const Starship = memo(({ name, url }) => (
   <Wrapper>
+    <Image url={url} />
     <Item>
       <Value>{name}</Value>
     </Item>

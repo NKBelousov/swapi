@@ -16,8 +16,8 @@ const Starships = memo(props => {
       <DataFetcher {...props}>
         {data =>
           map(data, d => {
-            const { name } = d;
-            return <Starship key={name} name={name} />;
+            const { name, url } = d;
+            return <Starship key={name} name={name} url={url} />;
           })
         }
       </DataFetcher>
