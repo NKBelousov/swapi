@@ -50,6 +50,7 @@ const Image = memo(({ url }) => {
       );
     };
     document.body.appendChild(img);
+    return () => document.body.removeChild(img);
   }, [url]);
 
   if (isLoading) {
