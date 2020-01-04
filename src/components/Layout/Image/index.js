@@ -3,6 +3,7 @@ import React, { useState, useEffect, memo } from "react";
 import PropTypes from "prop-types";
 
 import Preloader from "~/components/Utility/Preloader";
+import { IMAGE_ROOT } from "~/constants/Api";
 
 const ID_REGEX = /(\w+)\/(\d+)/;
 const IMAGE_TYPES = {
@@ -19,7 +20,7 @@ const getImageUrl = url => {
     return "";
   }
   const [_, type, id] = url.match(ID_REGEX);
-  return `https://starwars-visualguide.com/assets/img/${IMAGE_TYPES[type]}/${id}.jpg`;
+  return `${IMAGE_ROOT}/${IMAGE_TYPES[type]}/${id}.jpg`;
 };
 
 const Avatar = styled.img`
@@ -45,9 +46,7 @@ const Image = memo(({ url }) => {
     };
     img.onerror = () => {
       setLoading(false);
-      setRealUrl(
-        `https://starwars-visualguide.com/assets/img/big-placeholder.jpg`
-      );
+      setRealUrl(`${IMAGE_ROOT}/big-placeholder.jpg`);
     };
     document.body.appendChild(img);
     return () => document.body.removeChild(img);
