@@ -30,7 +30,7 @@ const Avatar = styled.img`
   max-width: 100%;
 `;
 
-const Image = memo(({ url }) => {
+const Image = memo(({ url, ...props }) => {
   const [isLoading, setLoading] = useState(true);
   const [realUrl, setRealUrl] = useState(url);
 
@@ -53,10 +53,10 @@ const Image = memo(({ url }) => {
   }, [url]);
 
   if (isLoading) {
-    return <Preloader />;
+    return <Preloader {...props} />;
   }
 
-  return <Avatar src={realUrl} />;
+  return <Avatar src={realUrl} {...props} />;
 });
 
 Image.displayName = "Image";

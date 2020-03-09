@@ -1,7 +1,8 @@
 import PropTypes from "prop-types";
-import React, { PureComponent } from "react";
+import React, { memo } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { animated } from "react-spring";
 
 import { devices } from "~/constants/media";
 
@@ -12,7 +13,7 @@ const width = percent => `
   width: ${percent}%;
 `;
 
-const Wrapper = styled.div`
+const Wrapper = styled(animated.div)`
   border: ${border} solid transparent;
   border-radius: 15px;
   box-sizing: border-box;
@@ -58,28 +59,24 @@ const Value = styled.div`
   text-align: center;
 `;
 
-class Person extends PureComponent {
-  static get propTypes() {
-    return {
-      name: PropTypes.string.isRequired,
-    };
-  }
-  static get defaultProps() {
-    return {
-      name: "",
-    };
-  }
-  render() {
-    return (
-      <Wrapper>
-        <Link to={`/person/${this.props.name}`}>
-          <Item>
-            <Value>{this.props.name}</Value>
-          </Item>
-        </Link>
-      </Wrapper>
-    );
-  }
-}
+const Person = memo(({ name, ...rest }) => {
+  return (
+    <Wrapper {...rest}>
+      <Link to={`/person/${name}`}>
+        <Item>
+          <Value>{name}</Value>
+        </Item>
+      </Link>
+    </Wrapper>
+  );
+});
+
+Person.propTypes = {
+  name: PropTypes.string.isRequired,
+};
+
+Person.defaultProps = {
+  name: "",
+};
 
 export default Person;

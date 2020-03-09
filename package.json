@@ -1,6 +1,6 @@
 {
   "name": "swapi",
-  "version": "0.0.175",
+  "version": "0.0.176",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -47,6 +47,7 @@
     "css-loader": "^3.2.0",
     "normalize.css": "^8.0.1",
     "react-router-dom": "^5.1.2",
+    "react-spring": "^8.0.27",
     "reselect": "^4.0.0",
     "style-loader": "^1.0.0"
   },

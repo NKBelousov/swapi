@@ -1,13 +1,13 @@
 import { connect } from "react-redux";
 import React, { memo, useState, useCallback } from "react";
 
-import { PEOPLE } from "~/constants/entities";
 import { fetchPeople } from "~/actions";
+import { PEOPLE } from "~/constants/entities";
 import createEntitySelector from "~/selectors/createEntitySelector";
 import DataFetcher from "~/components/Utility/DataFetcher";
 import Header from "~/components/Layout/Header";
-import Person from "~/components/Person";
 import Search from "~/components/Search";
+import PeopleList from "~/components/PeopleList";
 
 const People = memo(props => {
   const [search, setSearch] = useState("");
@@ -26,12 +26,7 @@ const People = memo(props => {
       <Header tooltip="People">People</Header>
       <Search value={search} placeholder="Search" onChange={callback} />
       <DataFetcher {...props}>
-        {data =>
-          data.filter(iteratee).map(d => {
-            const { name } = d;
-            return <Person key={name} name={name} />;
-          })
-        }
+        {data => <PeopleList data={data.filter(iteratee)} />}
       </DataFetcher>
     </>
   );
