@@ -4,7 +4,12 @@
 
 Star Wars Api (https://swapi.co/) client in React / Redux
 
-## How to run
+# How to run docker image
+
+- `docker pull nkbelousov/swapi:latest`
+- `docker run -it -p 80:80 nkbelousov/swapi:latest`
+
+## How to run locally
 
 - `npm install`
 - `npm run dev`

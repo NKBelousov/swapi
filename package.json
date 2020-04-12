@@ -1,13 +1,16 @@
 {
   "name": "swapi",
-  "version": "0.0.183",
+  "version": "0.0.184",
   "description": "",
   "main": "index.js",
   "scripts": {
     "build": "NODE_ENV=production ./node_modules/webpack/bin/webpack.js -p",
     "dev": "NODE_ENV=development ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --content-base dist/",
     "test": "./node_modules/jest/bin/jest.js --notify",
-    "test-watch": "npm run test -- --watchAll"
+    "test-watch": "npm run test -- --watchAll",
+    "docker:build": "docker build -t nkbelousov/swapi .",
+    "docker:run": "docker run -it -p 80:80 nkbelousov/swapi:latest",
+    "docker:publish": "docker push nkbelousov/swapi"
   },
   "author": "NKBelousov",
   "license": "MIT",
